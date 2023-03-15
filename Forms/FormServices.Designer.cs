@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -36,15 +35,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.dataGridViewServices = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewServices)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel1.Location = new System.Drawing.Point(13, 33);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(411, 405);
-            this.panel1.TabIndex = 0;
             // 
             // button1
             // 
@@ -110,11 +103,22 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Description";
             // 
+            // dataGridViewServices
+            // 
+            this.dataGridViewServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewServices.Location = new System.Drawing.Point(14, 33);
+            this.dataGridViewServices.Name = "dataGridViewServices";
+            this.dataGridViewServices.RowHeadersWidth = 51;
+            this.dataGridViewServices.RowTemplate.Height = 29;
+            this.dataGridViewServices.Size = new System.Drawing.Size(409, 405);
+            this.dataGridViewServices.TabIndex = 8;
+            // 
             // FormServices
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(621, 454);
+            this.Controls.Add(this.dataGridViewServices);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -122,17 +126,15 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.panel1);
             this.Name = "FormServices";
             this.Text = "FormServices";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewServices)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private Panel panel1;
         private Button button1;
         private Button button2;
         private Button button3;
@@ -140,5 +142,6 @@
         private Label label1;
         private Label label2;
         private Label label3;
+        private DataGridView dataGridViewServices;
     }
 }
