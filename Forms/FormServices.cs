@@ -19,7 +19,12 @@ namespace Valenwu
         public FormServices()
         {
             InitializeComponent();
-            //DisplayAllServicesOnLoad();
+            DisplayAllServicesOnLoad();
+        }
+        public void DisplayAllServicesOnLoad()
+        {
+            serviceBinding.DataSource = serviceDAO.getAllServices();
+            dataGridViewServices.DataSource = serviceBinding;
         }
 
         public void DisplayAllServices(ServiceDAO serviceDAO)
@@ -31,8 +36,10 @@ namespace Valenwu
 
         private void addService_Click(object sender, EventArgs e)
         {
-
-
+            FormPatientInfo fp = new FormPatientInfo(this);
+            fp.MdiParent = this.MdiParent;
+            fp.Show();
+            DisplayAllServicesOnLoad();
         }
     }
 }
