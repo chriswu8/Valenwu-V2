@@ -46,7 +46,7 @@
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
+            this.todayButton = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
@@ -93,6 +93,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "2023";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.todayButton_Click);
             // 
             // button2
             // 
@@ -222,14 +223,14 @@
             this.button15.Text = "September";
             this.button15.UseVisualStyleBackColor = true;
             // 
-            // button16
+            // todayButton
             // 
-            this.button16.Location = new System.Drawing.Point(24, 120);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(271, 54);
-            this.button16.TabIndex = 18;
-            this.button16.Text = "Today";
-            this.button16.UseVisualStyleBackColor = true;
+            this.todayButton.Location = new System.Drawing.Point(24, 120);
+            this.todayButton.Name = "todayButton";
+            this.todayButton.Size = new System.Drawing.Size(271, 54);
+            this.todayButton.TabIndex = 18;
+            this.todayButton.Text = "Today";
+            this.todayButton.UseVisualStyleBackColor = true;
             // 
             // button17
             // 
@@ -336,7 +337,7 @@
             this.Controls.Add(this.button19);
             this.Controls.Add(this.button18);
             this.Controls.Add(this.button17);
-            this.Controls.Add(this.button16);
+            this.Controls.Add(this.todayButton);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button14);
@@ -383,7 +384,7 @@
         private Button button13;
         private Button button14;
         private Button button15;
-        private Button button16;
+        private Button todayButton;
         private Button button17;
         private Button button18;
         private Button button19;
