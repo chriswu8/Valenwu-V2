@@ -30,9 +30,10 @@ namespace Valenwu.DAO
                         {
                             Service s = new Service
                             {
-                                Code = reader.GetString(0),
-                                Fee = reader.GetInt32(1),
-                                Description = reader.GetString(2),
+                                Id = reader.GetInt32(0),
+                                Code = reader.GetString(1),
+                                Fee = reader.GetInt32(2),
+                                Description = reader.GetString(3)
                                 
                             };
 
@@ -61,9 +62,9 @@ namespace Valenwu.DAO
 
                     MySqlCommand command = new MySqlCommand("INSERT INTO `service`(`CODE`, `FEE`, `DESCRIPTION`) VALUES (@code, @fee, @description)", connection);
 
-                    command.Parameters.AddWithValue("@lastname", service.Code);
-                    command.Parameters.AddWithValue("@firstname", service.Fee);
-                    command.Parameters.AddWithValue("@middlename", service.Description);
+                    command.Parameters.AddWithValue("@code", service.Code);
+                    command.Parameters.AddWithValue("@fee", service.Fee);
+                    command.Parameters.AddWithValue("@description", service.Description);
 
                     result = command.ExecuteNonQuery();
                 }
