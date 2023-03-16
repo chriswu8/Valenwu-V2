@@ -41,6 +41,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.take_payment = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.schedule_patient = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -162,11 +163,21 @@
             this.dataGridView1.Size = new System.Drawing.Size(817, 220);
             this.dataGridView1.TabIndex = 12;
             // 
+            // schedule_patient
+            // 
+            this.schedule_patient.Location = new System.Drawing.Point(331, 344);
+            this.schedule_patient.Name = "schedule_patient";
+            this.schedule_patient.Size = new System.Drawing.Size(134, 56);
+            this.schedule_patient.TabIndex = 14;
+            this.schedule_patient.Text = "Schedule Patient";
+            this.schedule_patient.UseVisualStyleBackColor = true;
+            // 
             // FormPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(848, 412);
+            this.Controls.Add(this.schedule_patient);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.take_payment);
             this.Controls.Add(this.label5);
@@ -204,5 +215,6 @@
         private Label label5;
         private Button take_payment;
         private DataGridView dataGridView1;
+        private Button schedule_patient;
     }
 }
