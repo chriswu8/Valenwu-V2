@@ -73,5 +73,26 @@ namespace Valenwu
             }
         }
 
+
+        private void dataGridViewServices_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridViewServices.SelectedRows.Count > 0)
+            {
+                Service service = (Service)dataGridViewServices.SelectedRows[0].DataBoundItem;
+                FormServiceInfo formServiceInfo = new FormServiceInfo(this, service);
+                formServiceInfo.ShowDialog();
+            }
+        }
+
+        private void editService_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewServices.SelectedRows.Count > 0)
+            {
+                Service service = (Service)dataGridViewServices.SelectedRows[0].DataBoundItem;
+                FormServiceInfo formServiceInfo = new FormServiceInfo(this, service);
+                formServiceInfo.ShowDialog();
+            }
+        }
+
     }
 }

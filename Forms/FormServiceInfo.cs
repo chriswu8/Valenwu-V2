@@ -17,11 +17,25 @@ namespace Valenwu.Forms
         BindingSource serviceBinding = new BindingSource();
         FormServices formService;
 
-        public FormServiceInfo(FormServices f)
+        //public FormServiceInfo(FormServices f)
+        //{
+        //    InitializeComponent();
+        //    formService = f;
+        //}
+
+        public FormServiceInfo(FormServices f, Service service = null)
         {
             InitializeComponent();
             formService = f;
+
+            if (service != null)
+            {
+                CodeTextBox.Text = service.Code;
+                FeeTextBox.Text = service.Fee.ToString();
+                DescriptionTextBox.Text = service.Description;
+            }
         }
+
 
         private void form_service_info_save_Click(object sender, EventArgs e)
         {

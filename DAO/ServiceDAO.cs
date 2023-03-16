@@ -50,6 +50,7 @@ namespace Valenwu.DAO
             return returnServices;
         }
 
+
         internal int addOneService(Service service)
         {
             int result = 0;
@@ -60,13 +61,17 @@ namespace Valenwu.DAO
                 {
                     connection.Open();
 
-                    MySqlCommand command = new MySqlCommand("INSERT INTO `service`(`CODE`, `FEE`, `DESCRIPTION`) VALUES (@code, @fee, @description)", connection);
+                    // Delete all records with the same code
+                    MySqlCommand deleteCommand = new MySqlCommand("DELETE FROM `service` WHERE `CODE` = @code", connection);
+                    deleteCommand.Parameters.AddWithValue("@code", service.Code);
+                    deleteCommand.ExecuteNonQuery();
 
-                    command.Parameters.AddWithValue("@code", service.Code);
-                    command.Parameters.AddWithValue("@fee", service.Fee);
-                    command.Parameters.AddWithValue("@description", service.Description);
-
-                    result = command.ExecuteNonQuery();
+                    // Insert the new service record
+                    MySqlCommand insertCommand = new MySqlCommand("INSERT INTO `service`(`CODE`, `FEE`, `DESCRIPTION`) VALUES (@code, @fee, @description)", connection);
+                    insertCommand.Parameters.AddWithValue("@code", service.Code);
+                    insertCommand.Parameters.AddWithValue("@fee", service.Fee);
+                    insertCommand.Parameters.AddWithValue("@description", service.Description);
+                    result = insertCommand.ExecuteNonQuery();
                 }
             }
             catch (Exception ex)
@@ -76,6 +81,7 @@ namespace Valenwu.DAO
 
             return result;
         }
+
 
         internal int deleteOneService(Service service)
         {
@@ -101,6 +107,5 @@ namespace Valenwu.DAO
 
             return result;
         }
-
     }
 }
