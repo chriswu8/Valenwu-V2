@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Valenwu.DAO;
+using Valenwu.Forms;
 
 namespace Valenwu
 {
@@ -36,7 +37,7 @@ namespace Valenwu
 
         private void addService_Click(object sender, EventArgs e)
         {
-            FormPatientInfo fp = new FormPatientInfo(this);
+            FormServiceInfo fp = new FormServiceInfo(this);
             fp.MdiParent = this.MdiParent;
             fp.Show();
             DisplayAllServicesOnLoad();
