@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Valenwu.DAO;
+using Valenwu.Entities;
 using Valenwu.Forms;
 
 namespace Valenwu
@@ -42,5 +43,35 @@ namespace Valenwu
             fp.Show();
             DisplayAllServicesOnLoad();
         }
+
+
+        private void deleteService_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewServices.SelectedRows.Count > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this service?", "Confirmation", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Service service = (Service)dataGridViewServices.SelectedRows[0].DataBoundItem;
+                    int result = serviceDAO.deleteOneService(service);
+
+                    if (result > 0)
+                    {
+                        MessageBox.Show("Service deleted successfully.");
+                        DisplayAllServices(serviceDAO);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Unable to delete service.");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to delete.");
+            }
+        }
+
     }
 }

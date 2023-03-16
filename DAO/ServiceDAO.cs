@@ -76,5 +76,31 @@ namespace Valenwu.DAO
 
             return result;
         }
+
+        internal int deleteOneService(Service service)
+        {
+            int result = 0;
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    MySqlCommand command = new MySqlCommand("DELETE FROM `service` WHERE `ID` = @id", connection);
+
+                    command.Parameters.AddWithValue("@id", service.Id);
+
+                    result = command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            return result;
+        }
+
     }
 }
