@@ -33,7 +33,7 @@ namespace Valenwu
 
             var d = formConfirmAppt_time.Text;*/
 
-            AppointmentDAO appointmentDAO= new AppointmentDAO();
+            AppointmentDAO appointmentDAO = new AppointmentDAO();
 
             Appointment appointment = new Appointment
             {
@@ -54,9 +54,9 @@ namespace Valenwu
 
         }
 
-            
 
-            
-        }
+
+
     }
+}
 

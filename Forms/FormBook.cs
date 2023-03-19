@@ -10,44 +10,60 @@ using System.Windows.Forms;
 
 namespace Valenwu
 {
-    //public partial class FormBook : Form
-    //{
-    //    public FormBook()
-    //    {
-    //        InitializeComponent();
-    //    }
-
-
-    //    private void todayButton_Click(object sender, EventArgs e)
-    //    {
-    //        FormPage pageForm = new FormPage();
-
-    //        // Set the StartPosition of the form to the center of the screen
-    //        pageForm.StartPosition = FormStartPosition.CenterScreen;
-
-    //        pageForm.Show();
-    //    }
-
-    //}
-
+    
     public partial class FormBook : Form
     {
         public event EventHandler TodayButtonClicked;
+        DateTime today;
 
         public FormBook()
         {
             InitializeComponent();
+            today = DateTime.Today;
         }
 
         private void todayButton_Click(object sender, EventArgs e)
         {
-            // Raise the TodayButtonClicked event
-            TodayButtonClicked?.Invoke(this, EventArgs.Empty);
+            var tmrMonth = today.Month;
+            var tmrDay = today.Day;
+            var tmrYear = today.Year;
 
-            // Create and show an instance of FormPage
-            FormPage pageForm = new FormPage();
-            pageForm.StartPosition = FormStartPosition.CenterScreen;
-            pageForm.Show();
+
+            FormPage fp = new FormPage();
+            fp.MdiParent = this.MdiParent;
+            fp.displayAppointments(tmrMonth, tmrDay, tmrYear);
+
+            fp.Show();
+            this.Close();
+            
+        }
+
+        private void formBook_tomorrow_Click(object sender, EventArgs e)
+        {
+            var tmrMonth = today.Month;
+            var tmrDay = today.Day + 1;
+            var tmrYear = today.Year;
+
+            if (tmrDay > 31 && tmrMonth == 12)
+            {
+                tmrYear += 1;
+                tmrDay = 1;
+                tmrMonth = 1;
+            }
+            else if (tmrDay > 31 && tmrMonth < 12)
+            {
+                tmrMonth += 1;
+                tmrDay = 1;
+            }
+
+            FormPage fp = new FormPage();
+            fp.MdiParent = this.MdiParent;
+
+            fp.displayAppointments(tmrMonth, tmrDay, tmrYear);
+
+            fp.Show();
+            this.Close();
+
         }
     }
 

@@ -30,31 +30,31 @@
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.todayButton = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
-            this.button24 = new System.Windows.Forms.Button();
-            this.button25 = new System.Windows.Forms.Button();
+            this.formBook_calendar = new System.Windows.Forms.MonthCalendar();
+            this.formBook_2023 = new System.Windows.Forms.Button();
+            this.formBook_2024 = new System.Windows.Forms.Button();
+            this.formBook_2025 = new System.Windows.Forms.Button();
+            this.formBook_jan = new System.Windows.Forms.Button();
+            this.formBook_feb = new System.Windows.Forms.Button();
+            this.formBook_apr = new System.Windows.Forms.Button();
+            this.formBook_mar = new System.Windows.Forms.Button();
+            this.formBook_aug = new System.Windows.Forms.Button();
+            this.formBook_jul = new System.Windows.Forms.Button();
+            this.formBook_june = new System.Windows.Forms.Button();
+            this.formBook_may = new System.Windows.Forms.Button();
+            this.formBook_dec = new System.Windows.Forms.Button();
+            this.formBook_nov = new System.Windows.Forms.Button();
+            this.formBook_oct = new System.Windows.Forms.Button();
+            this.formBook_sept = new System.Windows.Forms.Button();
+            this.formBook_today = new System.Windows.Forms.Button();
+            this.formBook_tomorrow = new System.Windows.Forms.Button();
+            this.formBook_1mo = new System.Windows.Forms.Button();
+            this.formBook_3mo = new System.Windows.Forms.Button();
+            this.formBook_1yrtoday = new System.Windows.Forms.Button();
+            this.formBook_6mo = new System.Windows.Forms.Button();
+            this.formBook_2yrtoday = new System.Windows.Forms.Button();
+            this.formBook_2wktoday = new System.Windows.Forms.Button();
+            this.formBook_1wktoday = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -78,231 +78,232 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Dr. Danilo Valle";
             // 
-            // monthCalendar1
+            // formBook_calendar
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(581, 346);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 2;
+            this.formBook_calendar.Location = new System.Drawing.Point(581, 346);
+            this.formBook_calendar.Name = "formBook_calendar";
+            this.formBook_calendar.TabIndex = 2;
             // 
-            // button1
+            // formBook_2023
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(581, 123);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(262, 57);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "2023";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.todayButton_Click);
+            this.formBook_2023.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.formBook_2023.Location = new System.Drawing.Point(581, 123);
+            this.formBook_2023.Name = "formBook_2023";
+            this.formBook_2023.Size = new System.Drawing.Size(262, 57);
+            this.formBook_2023.TabIndex = 3;
+            this.formBook_2023.Text = "2023";
+            this.formBook_2023.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // formBook_2024
             // 
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(581, 192);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(262, 57);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "2024";
-            this.button2.UseVisualStyleBackColor = true;
+            this.formBook_2024.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.formBook_2024.Location = new System.Drawing.Point(581, 192);
+            this.formBook_2024.Name = "formBook_2024";
+            this.formBook_2024.Size = new System.Drawing.Size(262, 57);
+            this.formBook_2024.TabIndex = 4;
+            this.formBook_2024.Text = "2024";
+            this.formBook_2024.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // formBook_2025
             // 
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button3.Location = new System.Drawing.Point(581, 264);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(262, 57);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "2025";
-            this.button3.UseVisualStyleBackColor = true;
+            this.formBook_2025.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.formBook_2025.Location = new System.Drawing.Point(581, 264);
+            this.formBook_2025.Name = "formBook_2025";
+            this.formBook_2025.Size = new System.Drawing.Size(262, 57);
+            this.formBook_2025.TabIndex = 5;
+            this.formBook_2025.Text = "2025";
+            this.formBook_2025.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // formBook_jan
             // 
-            this.button4.Location = new System.Drawing.Point(337, 120);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(203, 37);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "January";
-            this.button4.UseVisualStyleBackColor = true;
+            this.formBook_jan.Location = new System.Drawing.Point(337, 120);
+            this.formBook_jan.Name = "formBook_jan";
+            this.formBook_jan.Size = new System.Drawing.Size(203, 37);
+            this.formBook_jan.TabIndex = 6;
+            this.formBook_jan.Text = "January";
+            this.formBook_jan.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // formBook_feb
             // 
-            this.button5.Location = new System.Drawing.Point(337, 156);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(203, 37);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "February";
-            this.button5.UseVisualStyleBackColor = true;
+            this.formBook_feb.Location = new System.Drawing.Point(337, 156);
+            this.formBook_feb.Name = "formBook_feb";
+            this.formBook_feb.Size = new System.Drawing.Size(203, 37);
+            this.formBook_feb.TabIndex = 7;
+            this.formBook_feb.Text = "February";
+            this.formBook_feb.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // formBook_apr
             // 
-            this.button6.Location = new System.Drawing.Point(337, 228);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(203, 37);
-            this.button6.TabIndex = 9;
-            this.button6.Text = "April";
-            this.button6.UseVisualStyleBackColor = true;
+            this.formBook_apr.Location = new System.Drawing.Point(337, 228);
+            this.formBook_apr.Name = "formBook_apr";
+            this.formBook_apr.Size = new System.Drawing.Size(203, 37);
+            this.formBook_apr.TabIndex = 9;
+            this.formBook_apr.Text = "April";
+            this.formBook_apr.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // formBook_mar
             // 
-            this.button7.Location = new System.Drawing.Point(337, 192);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(203, 37);
-            this.button7.TabIndex = 8;
-            this.button7.Text = "March";
-            this.button7.UseVisualStyleBackColor = true;
+            this.formBook_mar.Location = new System.Drawing.Point(337, 192);
+            this.formBook_mar.Name = "formBook_mar";
+            this.formBook_mar.Size = new System.Drawing.Size(203, 37);
+            this.formBook_mar.TabIndex = 8;
+            this.formBook_mar.Text = "March";
+            this.formBook_mar.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // formBook_aug
             // 
-            this.button8.Location = new System.Drawing.Point(337, 372);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(203, 37);
-            this.button8.TabIndex = 13;
-            this.button8.Text = "August";
-            this.button8.UseVisualStyleBackColor = true;
+            this.formBook_aug.Location = new System.Drawing.Point(337, 372);
+            this.formBook_aug.Name = "formBook_aug";
+            this.formBook_aug.Size = new System.Drawing.Size(203, 37);
+            this.formBook_aug.TabIndex = 13;
+            this.formBook_aug.Text = "August";
+            this.formBook_aug.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // formBook_jul
             // 
-            this.button9.Location = new System.Drawing.Point(337, 336);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(203, 37);
-            this.button9.TabIndex = 12;
-            this.button9.Text = "July";
-            this.button9.UseVisualStyleBackColor = true;
+            this.formBook_jul.Location = new System.Drawing.Point(337, 336);
+            this.formBook_jul.Name = "formBook_jul";
+            this.formBook_jul.Size = new System.Drawing.Size(203, 37);
+            this.formBook_jul.TabIndex = 12;
+            this.formBook_jul.Text = "July";
+            this.formBook_jul.UseVisualStyleBackColor = true;
             // 
-            // button10
+            // formBook_june
             // 
-            this.button10.Location = new System.Drawing.Point(337, 300);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(203, 37);
-            this.button10.TabIndex = 11;
-            this.button10.Text = "June";
-            this.button10.UseVisualStyleBackColor = true;
+            this.formBook_june.Location = new System.Drawing.Point(337, 300);
+            this.formBook_june.Name = "formBook_june";
+            this.formBook_june.Size = new System.Drawing.Size(203, 37);
+            this.formBook_june.TabIndex = 11;
+            this.formBook_june.Text = "June";
+            this.formBook_june.UseVisualStyleBackColor = true;
             // 
-            // button11
+            // formBook_may
             // 
-            this.button11.Location = new System.Drawing.Point(337, 264);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(203, 37);
-            this.button11.TabIndex = 10;
-            this.button11.Text = "May";
-            this.button11.UseVisualStyleBackColor = true;
+            this.formBook_may.Location = new System.Drawing.Point(337, 264);
+            this.formBook_may.Name = "formBook_may";
+            this.formBook_may.Size = new System.Drawing.Size(203, 37);
+            this.formBook_may.TabIndex = 10;
+            this.formBook_may.Text = "May";
+            this.formBook_may.UseVisualStyleBackColor = true;
             // 
-            // button12
+            // formBook_dec
             // 
-            this.button12.Location = new System.Drawing.Point(337, 516);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(203, 37);
-            this.button12.TabIndex = 17;
-            this.button12.Text = "December";
-            this.button12.UseVisualStyleBackColor = true;
+            this.formBook_dec.Location = new System.Drawing.Point(337, 516);
+            this.formBook_dec.Name = "formBook_dec";
+            this.formBook_dec.Size = new System.Drawing.Size(203, 37);
+            this.formBook_dec.TabIndex = 17;
+            this.formBook_dec.Text = "December";
+            this.formBook_dec.UseVisualStyleBackColor = true;
             // 
-            // button13
+            // formBook_nov
             // 
-            this.button13.Location = new System.Drawing.Point(337, 480);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(203, 37);
-            this.button13.TabIndex = 16;
-            this.button13.Text = "November";
-            this.button13.UseVisualStyleBackColor = true;
+            this.formBook_nov.Location = new System.Drawing.Point(337, 480);
+            this.formBook_nov.Name = "formBook_nov";
+            this.formBook_nov.Size = new System.Drawing.Size(203, 37);
+            this.formBook_nov.TabIndex = 16;
+            this.formBook_nov.Text = "November";
+            this.formBook_nov.UseVisualStyleBackColor = true;
             // 
-            // button14
+            // formBook_oct
             // 
-            this.button14.Location = new System.Drawing.Point(337, 444);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(203, 37);
-            this.button14.TabIndex = 15;
-            this.button14.Text = "October";
-            this.button14.UseVisualStyleBackColor = true;
+            this.formBook_oct.Location = new System.Drawing.Point(337, 444);
+            this.formBook_oct.Name = "formBook_oct";
+            this.formBook_oct.Size = new System.Drawing.Size(203, 37);
+            this.formBook_oct.TabIndex = 15;
+            this.formBook_oct.Text = "October";
+            this.formBook_oct.UseVisualStyleBackColor = true;
             // 
-            // button15
+            // formBook_sept
             // 
-            this.button15.Location = new System.Drawing.Point(337, 408);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(203, 37);
-            this.button15.TabIndex = 14;
-            this.button15.Text = "September";
-            this.button15.UseVisualStyleBackColor = true;
+            this.formBook_sept.Location = new System.Drawing.Point(337, 408);
+            this.formBook_sept.Name = "formBook_sept";
+            this.formBook_sept.Size = new System.Drawing.Size(203, 37);
+            this.formBook_sept.TabIndex = 14;
+            this.formBook_sept.Text = "September";
+            this.formBook_sept.UseVisualStyleBackColor = true;
             // 
-            // todayButton
+            // formBook_today
             // 
-            this.todayButton.Location = new System.Drawing.Point(24, 120);
-            this.todayButton.Name = "todayButton";
-            this.todayButton.Size = new System.Drawing.Size(271, 54);
-            this.todayButton.TabIndex = 18;
-            this.todayButton.Text = "Today";
-            this.todayButton.UseVisualStyleBackColor = true;
+            this.formBook_today.Location = new System.Drawing.Point(24, 120);
+            this.formBook_today.Name = "formBook_today";
+            this.formBook_today.Size = new System.Drawing.Size(271, 54);
+            this.formBook_today.TabIndex = 18;
+            this.formBook_today.Text = "Today";
+            this.formBook_today.UseVisualStyleBackColor = true;
+            this.formBook_today.Click += new System.EventHandler(this.todayButton_Click);
             // 
-            // button17
+            // formBook_tomorrow
             // 
-            this.button17.Location = new System.Drawing.Point(24, 180);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(271, 54);
-            this.button17.TabIndex = 19;
-            this.button17.Text = "Tomorrow";
-            this.button17.UseVisualStyleBackColor = true;
+            this.formBook_tomorrow.Location = new System.Drawing.Point(24, 180);
+            this.formBook_tomorrow.Name = "formBook_tomorrow";
+            this.formBook_tomorrow.Size = new System.Drawing.Size(271, 54);
+            this.formBook_tomorrow.TabIndex = 19;
+            this.formBook_tomorrow.Text = "Tomorrow";
+            this.formBook_tomorrow.UseVisualStyleBackColor = true;
+            this.formBook_tomorrow.Click += new System.EventHandler(this.formBook_tomorrow_Click);
             // 
-            // button18
+            // formBook_1mo
             // 
-            this.button18.Location = new System.Drawing.Point(24, 372);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(75, 57);
-            this.button18.TabIndex = 20;
-            this.button18.Text = "1mo today";
-            this.button18.UseVisualStyleBackColor = true;
+            this.formBook_1mo.Location = new System.Drawing.Point(24, 372);
+            this.formBook_1mo.Name = "formBook_1mo";
+            this.formBook_1mo.Size = new System.Drawing.Size(75, 57);
+            this.formBook_1mo.TabIndex = 20;
+            this.formBook_1mo.Text = "1mo today";
+            this.formBook_1mo.UseVisualStyleBackColor = true;
             // 
-            // button19
+            // formBook_3mo
             // 
-            this.button19.Location = new System.Drawing.Point(120, 372);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(75, 57);
-            this.button19.TabIndex = 21;
-            this.button19.Text = "3mo today";
-            this.button19.UseVisualStyleBackColor = true;
+            this.formBook_3mo.Location = new System.Drawing.Point(120, 372);
+            this.formBook_3mo.Name = "formBook_3mo";
+            this.formBook_3mo.Size = new System.Drawing.Size(75, 57);
+            this.formBook_3mo.TabIndex = 21;
+            this.formBook_3mo.Text = "3mo today";
+            this.formBook_3mo.UseVisualStyleBackColor = true;
             // 
-            // button20
+            // formBook_1yrtoday
             // 
-            this.button20.Location = new System.Drawing.Point(24, 465);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(271, 42);
-            this.button20.TabIndex = 23;
-            this.button20.Text = "1yr today";
-            this.button20.UseVisualStyleBackColor = true;
+            this.formBook_1yrtoday.Location = new System.Drawing.Point(24, 465);
+            this.formBook_1yrtoday.Name = "formBook_1yrtoday";
+            this.formBook_1yrtoday.Size = new System.Drawing.Size(271, 42);
+            this.formBook_1yrtoday.TabIndex = 23;
+            this.formBook_1yrtoday.Text = "1yr today";
+            this.formBook_1yrtoday.UseVisualStyleBackColor = true;
             // 
-            // button21
+            // formBook_6mo
             // 
-            this.button21.Location = new System.Drawing.Point(220, 372);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(75, 57);
-            this.button21.TabIndex = 22;
-            this.button21.Text = "6mo today";
-            this.button21.UseVisualStyleBackColor = true;
+            this.formBook_6mo.Location = new System.Drawing.Point(220, 372);
+            this.formBook_6mo.Name = "formBook_6mo";
+            this.formBook_6mo.Size = new System.Drawing.Size(75, 57);
+            this.formBook_6mo.TabIndex = 22;
+            this.formBook_6mo.Text = "6mo today";
+            this.formBook_6mo.UseVisualStyleBackColor = true;
             // 
-            // button22
+            // formBook_2yrtoday
             // 
-            this.button22.Location = new System.Drawing.Point(24, 516);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(271, 37);
-            this.button22.TabIndex = 27;
-            this.button22.Text = "2yr today";
-            this.button22.UseVisualStyleBackColor = true;
+            this.formBook_2yrtoday.Location = new System.Drawing.Point(24, 516);
+            this.formBook_2yrtoday.Name = "formBook_2yrtoday";
+            this.formBook_2yrtoday.Size = new System.Drawing.Size(271, 37);
+            this.formBook_2yrtoday.TabIndex = 27;
+            this.formBook_2yrtoday.Text = "2yr today";
+            this.formBook_2yrtoday.UseVisualStyleBackColor = true;
             // 
-            // button24
+            // formBook_2wktoday
             // 
-            this.button24.Location = new System.Drawing.Point(172, 280);
-            this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(123, 57);
-            this.button24.TabIndex = 25;
-            this.button24.Text = "2wk today";
-            this.button24.UseVisualStyleBackColor = true;
+            this.formBook_2wktoday.Location = new System.Drawing.Point(172, 280);
+            this.formBook_2wktoday.Name = "formBook_2wktoday";
+            this.formBook_2wktoday.Size = new System.Drawing.Size(123, 57);
+            this.formBook_2wktoday.TabIndex = 25;
+            this.formBook_2wktoday.Text = "2wk today";
+            this.formBook_2wktoday.UseVisualStyleBackColor = true;
             // 
-            // button25
+            // formBook_1wktoday
             // 
-            this.button25.Location = new System.Drawing.Point(24, 280);
-            this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(123, 57);
-            this.button25.TabIndex = 24;
-            this.button25.Text = "1wk today";
-            this.button25.UseVisualStyleBackColor = true;
+            this.formBook_1wktoday.Location = new System.Drawing.Point(24, 280);
+            this.formBook_1wktoday.Name = "formBook_1wktoday";
+            this.formBook_1wktoday.Size = new System.Drawing.Size(123, 57);
+            this.formBook_1wktoday.TabIndex = 24;
+            this.formBook_1wktoday.Text = "1wk today";
+            this.formBook_1wktoday.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -329,31 +330,31 @@
             this.ClientSize = new System.Drawing.Size(858, 568);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button22);
-            this.Controls.Add(this.button24);
-            this.Controls.Add(this.button25);
-            this.Controls.Add(this.button20);
-            this.Controls.Add(this.button21);
-            this.Controls.Add(this.button19);
-            this.Controls.Add(this.button18);
-            this.Controls.Add(this.button17);
-            this.Controls.Add(this.todayButton);
-            this.Controls.Add(this.button12);
-            this.Controls.Add(this.button13);
-            this.Controls.Add(this.button14);
-            this.Controls.Add(this.button15);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.formBook_2yrtoday);
+            this.Controls.Add(this.formBook_2wktoday);
+            this.Controls.Add(this.formBook_1wktoday);
+            this.Controls.Add(this.formBook_1yrtoday);
+            this.Controls.Add(this.formBook_6mo);
+            this.Controls.Add(this.formBook_3mo);
+            this.Controls.Add(this.formBook_1mo);
+            this.Controls.Add(this.formBook_tomorrow);
+            this.Controls.Add(this.formBook_today);
+            this.Controls.Add(this.formBook_dec);
+            this.Controls.Add(this.formBook_nov);
+            this.Controls.Add(this.formBook_oct);
+            this.Controls.Add(this.formBook_sept);
+            this.Controls.Add(this.formBook_aug);
+            this.Controls.Add(this.formBook_jul);
+            this.Controls.Add(this.formBook_june);
+            this.Controls.Add(this.formBook_may);
+            this.Controls.Add(this.formBook_apr);
+            this.Controls.Add(this.formBook_mar);
+            this.Controls.Add(this.formBook_feb);
+            this.Controls.Add(this.formBook_jan);
+            this.Controls.Add(this.formBook_2025);
+            this.Controls.Add(this.formBook_2024);
+            this.Controls.Add(this.formBook_2023);
+            this.Controls.Add(this.formBook_calendar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "FormBook";
@@ -368,31 +369,31 @@
 
         private PictureBox pictureBox1;
         private Label label1;
-        private MonthCalendar monthCalendar1;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private Button button6;
-        private Button button7;
-        private Button button8;
-        private Button button9;
-        private Button button10;
-        private Button button11;
-        private Button button12;
-        private Button button13;
-        private Button button14;
-        private Button button15;
-        private Button todayButton;
-        private Button button17;
-        private Button button18;
-        private Button button19;
-        private Button button20;
-        private Button button21;
-        private Button button22;
-        private Button button24;
-        private Button button25;
+        private MonthCalendar formBook_calendar;
+        private Button formBook_2023;
+        private Button formBook_2024;
+        private Button formBook_2025;
+        private Button formBook_jan;
+        private Button formBook_feb;
+        private Button formBook_apr;
+        private Button formBook_mar;
+        private Button formBook_aug;
+        private Button formBook_jul;
+        private Button formBook_june;
+        private Button formBook_may;
+        private Button formBook_dec;
+        private Button formBook_nov;
+        private Button formBook_oct;
+        private Button formBook_sept;
+        private Button formBook_today;
+        private Button formBook_tomorrow;
+        private Button formBook_1mo;
+        private Button formBook_3mo;
+        private Button formBook_1yrtoday;
+        private Button formBook_6mo;
+        private Button formBook_2yrtoday;
+        private Button formBook_2wktoday;
+        private Button formBook_1wktoday;
         private Label label2;
         private Label label3;
     }
