@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Valenwu.DAO;
+using Valenwu.Entities;
 
 namespace Valenwu
 {
@@ -43,6 +44,24 @@ namespace Valenwu
         private void take_payment_Click(object sender, EventArgs e)
         {
             FormPayment fp = new FormPayment(this);
+        }
+
+        private void schedule_patient_Click(object sender, EventArgs e)
+        {
+            /*FormConfirmAppointment fp = new FormConfirmAppointment();
+            fp.MdiParent = this.MdiParent;
+            fp.Show();*/
+
+            // select patient from data grid view
+            // pass to cofirm appt form
+            // 
+
+            Patient selectedPatient = (Patient)dataGridView1.SelectedRows[0].DataBoundItem;
+
+            FormConfirmAppointment fp = new FormConfirmAppointment(selectedPatient);
+            fp.MdiParent = this.MdiParent;
+            fp.Show();
+
         }
     }
 }

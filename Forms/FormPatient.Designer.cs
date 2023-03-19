@@ -171,6 +171,7 @@
             this.schedule_patient.TabIndex = 14;
             this.schedule_patient.Text = "Schedule Patient";
             this.schedule_patient.UseVisualStyleBackColor = true;
+            this.schedule_patient.Click += new System.EventHandler(this.schedule_patient_Click);
             // 
             // FormPatient
             // 
