@@ -116,7 +116,7 @@
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(206, 32);
             this.button8.TabIndex = 10;
-            this.button8.Text = "EOD Posting";
+            this.button8.Text = "Generate PDF";
             this.button8.UseVisualStyleBackColor = true;
             // 
             // PatientsButton
@@ -160,7 +160,6 @@
             this.ServicesButton.Text = "Services";
             this.ServicesButton.UseVisualStyleBackColor = false;
             this.ServicesButton.Click += new System.EventHandler(this.OpenFormButton_Click);
-
             // 
             // Valenwu
             // 
