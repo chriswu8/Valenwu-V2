@@ -134,7 +134,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(97, 44);
             this.button4.TabIndex = 7;
-            this.button4.Text = "Cancel";
+            this.button4.Text = "Delete";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // button3

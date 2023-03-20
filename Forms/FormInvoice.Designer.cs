@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -57,41 +57,14 @@
             this.panel1.Size = new System.Drawing.Size(288, 364);
             this.panel1.TabIndex = 0;
             // 
-            // richTextBox1
+            // button4
             // 
-            this.richTextBox1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.richTextBox1.Location = new System.Drawing.Point(17, 203);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(255, 90);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 174);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Patient\'s Balance";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(18, 16);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(254, 37);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Make a new invoice";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(17, 59);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(254, 37);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Take a payment";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button4.Location = new System.Drawing.Point(175, 313);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(96, 39);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "Exit";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -102,14 +75,41 @@
             this.button3.Text = "Print Receipt";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // button2
             // 
-            this.button4.Location = new System.Drawing.Point(175, 313);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(96, 39);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Exit";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button2.Location = new System.Drawing.Point(17, 59);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(254, 37);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Take a payment";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(18, 16);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(254, 37);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Make a new invoice";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 174);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(119, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Patient\'s Balance";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.richTextBox1.Location = new System.Drawing.Point(17, 203);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(255, 90);
+            this.richTextBox1.TabIndex = 0;
+            this.richTextBox1.Text = "";
             // 
             // panel2
             // 
