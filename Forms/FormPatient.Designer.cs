@@ -39,7 +39,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.take_payment = new System.Windows.Forms.Button();
+            this.view_invoice = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.schedule_patient = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -143,15 +143,15 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Search:";
             // 
-            // take_payment
+            // view_invoice
             // 
-            this.take_payment.Location = new System.Drawing.Point(179, 344);
-            this.take_payment.Name = "take_payment";
-            this.take_payment.Size = new System.Drawing.Size(134, 56);
-            this.take_payment.TabIndex = 0;
-            this.take_payment.Text = "Take Payment";
-            this.take_payment.UseVisualStyleBackColor = true;
-            this.take_payment.Click += new System.EventHandler(this.take_payment_Click);
+            this.view_invoice.Location = new System.Drawing.Point(179, 344);
+            this.view_invoice.Name = "view_invoice";
+            this.view_invoice.Size = new System.Drawing.Size(134, 56);
+            this.view_invoice.TabIndex = 0;
+            this.view_invoice.Text = "View Invoice";
+            this.view_invoice.UseVisualStyleBackColor = true;
+            this.view_invoice.Click += new System.EventHandler(this.take_payment_Click);
             // 
             // dataGridView1
             // 
@@ -180,7 +180,7 @@
             this.ClientSize = new System.Drawing.Size(848, 412);
             this.Controls.Add(this.schedule_patient);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.take_payment);
+            this.Controls.Add(this.view_invoice);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -214,7 +214,7 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private Button take_payment;
+        private Button view_invoice;
         private DataGridView dataGridView1;
         private Button schedule_patient;
     }
