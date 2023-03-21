@@ -32,12 +32,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.ExamTextbox = new System.Windows.Forms.TextBox();
             this.formConfirmAppt_save = new System.Windows.Forms.Button();
             this.formConfirmAppt_cancel = new System.Windows.Forms.Button();
             this.FeeTextbox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.formConfirmAppt_time = new System.Windows.Forms.DateTimePicker();
+            this.formConfirmAppointment_exam_drop_down = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // formConfirmAppt_date
@@ -74,13 +74,6 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Exam";
             // 
-            // ExamTextbox
-            // 
-            this.ExamTextbox.Location = new System.Drawing.Point(374, 41);
-            this.ExamTextbox.Name = "ExamTextbox";
-            this.ExamTextbox.Size = new System.Drawing.Size(149, 27);
-            this.ExamTextbox.TabIndex = 5;
-            // 
             // formConfirmAppt_save
             // 
             this.formConfirmAppt_save.Location = new System.Drawing.Point(329, 142);
@@ -104,6 +97,7 @@
             // 
             this.FeeTextbox.Location = new System.Drawing.Point(374, 74);
             this.FeeTextbox.Name = "FeeTextbox";
+            this.FeeTextbox.ReadOnly = true;
             this.FeeTextbox.Size = new System.Drawing.Size(149, 27);
             this.FeeTextbox.TabIndex = 9;
             // 
@@ -123,17 +117,26 @@
             this.formConfirmAppt_time.Size = new System.Drawing.Size(190, 27);
             this.formConfirmAppt_time.TabIndex = 10;
             // 
+            // formConfirmAppointment_exam_drop_down
+            // 
+            this.formConfirmAppointment_exam_drop_down.FormattingEnabled = true;
+            this.formConfirmAppointment_exam_drop_down.Location = new System.Drawing.Point(374, 40);
+            this.formConfirmAppointment_exam_drop_down.Name = "formConfirmAppointment_exam_drop_down";
+            this.formConfirmAppointment_exam_drop_down.Size = new System.Drawing.Size(151, 28);
+            this.formConfirmAppointment_exam_drop_down.TabIndex = 11;
+            this.formConfirmAppointment_exam_drop_down.SelectedIndexChanged += new System.EventHandler(this.formConfirmAppointment_exam_drop_down_SelectedIndexChanged);
+            // 
             // FormConfirmAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(575, 195);
+            this.Controls.Add(this.formConfirmAppointment_exam_drop_down);
             this.Controls.Add(this.formConfirmAppt_time);
             this.Controls.Add(this.FeeTextbox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.formConfirmAppt_cancel);
             this.Controls.Add(this.formConfirmAppt_save);
-            this.Controls.Add(this.ExamTextbox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -150,11 +153,11 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private TextBox ExamTextbox;
         private Button formConfirmAppt_save;
         private Button formConfirmAppt_cancel;
         private TextBox FeeTextbox;
         private Label label4;
         private DateTimePicker formConfirmAppt_time;
+        private ComboBox formConfirmAppointment_exam_drop_down;
     }
 }

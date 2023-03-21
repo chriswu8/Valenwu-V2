@@ -10,19 +10,31 @@ using System.Windows.Forms;
 using Valenwu.Entities;
 using Valenwu.DAO;
 using Org.BouncyCastle.Asn1.X509.Qualified;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Valenwu
 {
     public partial class FormConfirmAppointment : Form
     {
         Patient patient;
+        ServiceDAO serviceDAO = new ServiceDAO();
+        List<Service> services;
         public FormConfirmAppointment(Patient p)
         {
             InitializeComponent();
             formConfirmAppt_time.Format = DateTimePickerFormat.Time;
             formConfirmAppt_time.ShowUpDown = true;
             patient = p;
+
+            services = serviceDAO.getAllServices();
+
+            foreach (Service service in services)
+            {
+                formConfirmAppointment_exam_drop_down.Items.Add(service.Code);
+            }
         }
+
+
 
         private void formConfirmAppt_save_Click(object sender, EventArgs e)
         {
@@ -41,7 +53,7 @@ namespace Valenwu
                 Day = formConfirmAppt_date.Value.Day.ToString(),
                 Year = formConfirmAppt_date.Value.Year.ToString(),
                 Time = formConfirmAppt_time.Value.TimeOfDay.ToString(),
-                Exam = ExamTextbox.Text,
+                Exam = formConfirmAppointment_exam_drop_down.SelectedItem.ToString(),
                 Fee = FeeTextbox.Text,
                 PatientID = patient.ID
             };
@@ -54,9 +66,20 @@ namespace Valenwu
 
         }
 
+        private void formConfirmAppointment_exam_drop_down_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            Object selectedItem = formConfirmAppointment_exam_drop_down.SelectedItem;
 
+            foreach (Service service in services)
+            {
+                if (service.Code.Equals(selectedItem.ToString()))
+                {
+                    FeeTextbox.Text = service.Fee.ToString();
+                }
+            }
 
-
+        }
     }
 }
 
