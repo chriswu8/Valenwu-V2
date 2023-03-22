@@ -32,12 +32,12 @@
             this.DaysNotesTextbox = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.diary_button = new System.Windows.Forms.Button();
+            this.patient_button = new System.Windows.Forms.Button();
+            this.delete_appointment_button = new System.Windows.Forms.Button();
+            this.change_appointment_button = new System.Windows.Forms.Button();
+            this.squeeze_in_button = new System.Windows.Forms.Button();
+            this.exit_page_button = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -99,70 +99,76 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.diary_button);
+            this.panel1.Controls.Add(this.patient_button);
+            this.panel1.Controls.Add(this.delete_appointment_button);
+            this.panel1.Controls.Add(this.change_appointment_button);
+            this.panel1.Controls.Add(this.squeeze_in_button);
+            this.panel1.Controls.Add(this.exit_page_button);
             this.panel1.Location = new System.Drawing.Point(20, 553);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(707, 68);
             this.panel1.TabIndex = 3;
             // 
-            // button6
+            // diary_button
             // 
-            this.button6.Location = new System.Drawing.Point(428, 12);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(97, 44);
-            this.button6.TabIndex = 9;
-            this.button6.Text = "Diary";
-            this.button6.UseVisualStyleBackColor = true;
+            this.diary_button.Location = new System.Drawing.Point(428, 12);
+            this.diary_button.Name = "diary_button";
+            this.diary_button.Size = new System.Drawing.Size(97, 44);
+            this.diary_button.TabIndex = 9;
+            this.diary_button.Text = "Diary";
+            this.diary_button.UseVisualStyleBackColor = true;
+            this.diary_button.Click += new System.EventHandler(this.PageButton_Click);
             // 
-            // button5
+            // patient_button
             // 
-            this.button5.Location = new System.Drawing.Point(325, 12);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(97, 44);
-            this.button5.TabIndex = 8;
-            this.button5.Text = "Patient";
-            this.button5.UseVisualStyleBackColor = true;
+            this.patient_button.Location = new System.Drawing.Point(325, 12);
+            this.patient_button.Name = "patient_button";
+            this.patient_button.Size = new System.Drawing.Size(97, 44);
+            this.patient_button.TabIndex = 8;
+            this.patient_button.Text = "Patient";
+            this.patient_button.UseVisualStyleBackColor = true;
+            this.patient_button.Click += new System.EventHandler(this.PageButton_Click);
             // 
-            // button4
+            // delete_appointment_button
             // 
-            this.button4.Location = new System.Drawing.Point(222, 12);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(97, 44);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Delete";
-            this.button4.UseVisualStyleBackColor = true;
+            this.delete_appointment_button.Location = new System.Drawing.Point(222, 12);
+            this.delete_appointment_button.Name = "delete_appointment_button";
+            this.delete_appointment_button.Size = new System.Drawing.Size(97, 44);
+            this.delete_appointment_button.TabIndex = 7;
+            this.delete_appointment_button.Text = "Delete";
+            this.delete_appointment_button.UseVisualStyleBackColor = true;
+            this.delete_appointment_button.Click += new System.EventHandler(this.PageButton_Click);
             // 
-            // button3
+            // change_appointment_button
             // 
-            this.button3.Location = new System.Drawing.Point(119, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(97, 44);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Change";
-            this.button3.UseVisualStyleBackColor = true;
+            this.change_appointment_button.Location = new System.Drawing.Point(119, 12);
+            this.change_appointment_button.Name = "change_appointment_button";
+            this.change_appointment_button.Size = new System.Drawing.Size(97, 44);
+            this.change_appointment_button.TabIndex = 6;
+            this.change_appointment_button.Text = "Change";
+            this.change_appointment_button.UseVisualStyleBackColor = true;
+            this.change_appointment_button.Click += new System.EventHandler(this.PageButton_Click);
             // 
-            // button2
+            // squeeze_in_button
             // 
-            this.button2.Location = new System.Drawing.Point(16, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(97, 44);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Squeeze In";
-            this.button2.UseVisualStyleBackColor = true;
+            this.squeeze_in_button.Location = new System.Drawing.Point(16, 12);
+            this.squeeze_in_button.Name = "squeeze_in_button";
+            this.squeeze_in_button.Size = new System.Drawing.Size(97, 44);
+            this.squeeze_in_button.TabIndex = 5;
+            this.squeeze_in_button.Text = "Squeeze In";
+            this.squeeze_in_button.UseVisualStyleBackColor = true;
+            this.squeeze_in_button.Click += new System.EventHandler(this.PageButton_Click);
             // 
-            // button1
+            // exit_page_button
             // 
-            this.button1.Location = new System.Drawing.Point(596, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(97, 44);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "EXIT";
-            this.button1.UseVisualStyleBackColor = true;
+            this.exit_page_button.Location = new System.Drawing.Point(596, 12);
+            this.exit_page_button.Name = "exit_page_button";
+            this.exit_page_button.Size = new System.Drawing.Size(97, 44);
+            this.exit_page_button.TabIndex = 4;
+            this.exit_page_button.Text = "EXIT";
+            this.exit_page_button.UseVisualStyleBackColor = true;
+            this.exit_page_button.Click += new System.EventHandler(this.PageButton_Click);
             // 
             // panel2
             // 
@@ -490,12 +496,12 @@
         private RichTextBox DaysNotesTextbox;
         private Label label1;
         private Panel panel1;
-        private Button button5;
-        private Button button4;
-        private Button button3;
-        private Button button2;
-        private Button button1;
-        private Button button6;
+        private Button patient_button;
+        private Button delete_appointment_button;
+        private Button change_appointment_button;
+        private Button squeeze_in_button;
+        private Button exit_page_button;
+        private Button diary_button;
         private Panel panel2;
         private Label label14;
         private Label label15;

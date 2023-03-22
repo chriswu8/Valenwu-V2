@@ -28,6 +28,37 @@ namespace Valenwu
 
             dataGridView1.DataSource = appointmentBinding;
         }
-        
+
+        private void PageButton_Click(object sender, EventArgs e)
+        {
+            if (sender == squeeze_in_button)
+            {
+                FormPatient patientsForm = new FormPatient();
+                patientsForm.StartPosition = FormStartPosition.CenterScreen;
+                patientsForm.Show();
+            }
+            else if (sender == change_appointment_button)
+            {
+                // TODO
+            }
+            else if (sender == delete_appointment_button)
+            {
+                // TODO
+            }
+            else if (sender == patient_button)
+            {
+                // TODO
+            }
+            else if (sender == diary_button)
+            {
+                // TODO
+            }
+            else if (sender == exit_page_button)
+            {
+                // TODO
+            }
+        }
+
+
     }
 }

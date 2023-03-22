@@ -31,8 +31,10 @@ namespace Valenwu
 
             services = serviceDAO.getAllServices();
 
+            // populates services from the service table to the Exam dropdown
             foreach (Service service in services)
             {
+                // adding each service code to Exam dropdown
                 formConfirmAppointment_exam_drop_down.Items.Add(service.Code);
             }
         }
@@ -49,7 +51,7 @@ namespace Valenwu
             var d = formConfirmAppt_time.Text;*/
 
             
-
+            // generating appointment
             Appointment appointment = new Appointment
             {
                 Month = formConfirmAppt_date.Value.Month.ToString(),
@@ -62,18 +64,20 @@ namespace Valenwu
             };
 
 
-
+            // sql statement that inserts appointment into appointment table
             int result = appointmentDAO.addAppointmentByPatient(appointment);
 
-            // get service id from here
+            // get service id from the corresponding exam
             Service individualService = serviceDAO.getOneService(formConfirmAppointment_exam_drop_down.SelectedItem.ToString());
 
+            // Generate invoice based on acquired service
             Invoice invoice = new Invoice
             {
                 patientID = patient.ID,
                 serviceID = individualService.Id
             };
 
+            // write to invoice table
             invoiceDAO.addOneInvoice(individualService.Id, patient.ID);
 
 

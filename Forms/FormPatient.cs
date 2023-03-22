@@ -59,6 +59,7 @@ namespace Valenwu
             // pass to cofirm appt form
             // 
 
+            // grabs all patient info of selected patient in data grid view
             Patient selectedPatient = (Patient)dataGridView1.SelectedRows[0].DataBoundItem;
 
             FormConfirmAppointment fp = new FormConfirmAppointment(selectedPatient);
