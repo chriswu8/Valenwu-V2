@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.add_new_patient = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.exit_patient_button = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -42,6 +42,8 @@
             this.view_invoice = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.schedule_patient = new System.Windows.Forms.Button();
+            this.delete_patient = new System.Windows.Forms.Button();
+            this.edit_patient = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,14 +57,14 @@
             this.add_new_patient.UseVisualStyleBackColor = true;
             this.add_new_patient.Click += new System.EventHandler(this.add_new_patient_Click);
             // 
-            // button2
+            // exit_patient_button
             // 
-            this.button2.Location = new System.Drawing.Point(691, 344);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(145, 56);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Exit";
-            this.button2.UseVisualStyleBackColor = true;
+            this.exit_patient_button.Location = new System.Drawing.Point(691, 344);
+            this.exit_patient_button.Name = "exit_patient_button";
+            this.exit_patient_button.Size = new System.Drawing.Size(145, 56);
+            this.exit_patient_button.TabIndex = 1;
+            this.exit_patient_button.Text = "Exit";
+            this.exit_patient_button.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
@@ -145,7 +147,7 @@
             // 
             // view_invoice
             // 
-            this.view_invoice.Location = new System.Drawing.Point(179, 344);
+            this.view_invoice.Location = new System.Drawing.Point(308, 344);
             this.view_invoice.Name = "view_invoice";
             this.view_invoice.Size = new System.Drawing.Size(134, 56);
             this.view_invoice.TabIndex = 0;
@@ -165,7 +167,7 @@
             // 
             // schedule_patient
             // 
-            this.schedule_patient.Location = new System.Drawing.Point(331, 344);
+            this.schedule_patient.Location = new System.Drawing.Point(448, 344);
             this.schedule_patient.Name = "schedule_patient";
             this.schedule_patient.Size = new System.Drawing.Size(134, 56);
             this.schedule_patient.TabIndex = 14;
@@ -173,11 +175,31 @@
             this.schedule_patient.UseVisualStyleBackColor = true;
             this.schedule_patient.Click += new System.EventHandler(this.schedule_patient_Click);
             // 
+            // delete_patient
+            // 
+            this.delete_patient.Location = new System.Drawing.Point(240, 344);
+            this.delete_patient.Name = "delete_patient";
+            this.delete_patient.Size = new System.Drawing.Size(62, 56);
+            this.delete_patient.TabIndex = 16;
+            this.delete_patient.Text = "Delete";
+            this.delete_patient.UseVisualStyleBackColor = true;
+            // 
+            // edit_patient
+            // 
+            this.edit_patient.Location = new System.Drawing.Point(170, 344);
+            this.edit_patient.Name = "edit_patient";
+            this.edit_patient.Size = new System.Drawing.Size(64, 56);
+            this.edit_patient.TabIndex = 17;
+            this.edit_patient.Text = "Edit";
+            this.edit_patient.UseVisualStyleBackColor = true;
+            // 
             // FormPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(848, 412);
+            this.Controls.Add(this.edit_patient);
+            this.Controls.Add(this.delete_patient);
             this.Controls.Add(this.schedule_patient);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.view_invoice);
@@ -190,7 +212,7 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.exit_patient_button);
             this.Controls.Add(this.add_new_patient);
             this.IsMdiContainer = true;
             this.Name = "FormPatient";
@@ -204,7 +226,7 @@
         #endregion
 
         private Button add_new_patient;
-        private Button button2;
+        private Button exit_patient_button;
         private TextBox textBox1;
         private Button button3;
         private Button button4;
@@ -217,5 +239,7 @@
         private Button view_invoice;
         private DataGridView dataGridView1;
         private Button schedule_patient;
+        private Button delete_patient;
+        private Button edit_patient;
     }
 }
