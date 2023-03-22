@@ -18,7 +18,10 @@ namespace Valenwu
     {
         Patient patient;
         ServiceDAO serviceDAO = new ServiceDAO();
+        AppointmentDAO appointmentDAO = new AppointmentDAO();
+        InvoiceDAO invoiceDAO = new InvoiceDAO();
         List<Service> services;
+
         public FormConfirmAppointment(Patient p)
         {
             InitializeComponent();
@@ -45,7 +48,7 @@ namespace Valenwu
 
             var d = formConfirmAppt_time.Text;*/
 
-            AppointmentDAO appointmentDAO = new AppointmentDAO();
+            
 
             Appointment appointment = new Appointment
             {
@@ -58,7 +61,21 @@ namespace Valenwu
                 PatientID = patient.ID
             };
 
+
+
             int result = appointmentDAO.addAppointmentByPatient(appointment);
+
+            // get service id from here
+            Service individualService = serviceDAO.getOneService(formConfirmAppointment_exam_drop_down.SelectedItem.ToString());
+
+            Invoice invoice = new Invoice
+            {
+                patientID = patient.ID,
+                serviceID = individualService.Id
+            };
+
+            invoiceDAO.addOneInvoice(individualService.Id, patient.ID);
+
 
             MessageBox.Show(result + " new appointment added!");
 

@@ -50,6 +50,47 @@ namespace Valenwu.DAO
             return returnServices;
         }
 
+        public Service getOneService(string serviceCode)
+        {
+            Service service = new Service();
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Define the SQL query
+                    MySqlCommand command = new MySqlCommand("SELECT `ID`, `CODE`, `FEE`, `DESCRIPTION` FROM `service` WHERE CODE = @serviceID", connection);
+
+                    command.Parameters.AddWithValue("@serviceID", serviceCode);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Service s = new Service
+                            {
+                                Id = reader.GetInt32(0),
+                                Code = reader.GetString(1),
+                                Fee = reader.GetInt32(2),
+                                Description = reader.GetString(3)
+
+                            };
+
+                            service = s;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            return service;
+        }
+
 
         internal int addOneService(Service service)
         {

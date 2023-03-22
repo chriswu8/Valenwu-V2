@@ -31,16 +31,17 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.formInvoice_takePayment = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.formInvoice_richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.formInvoice_dataGridView = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.formInvoice_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -48,10 +49,10 @@
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.formInvoice_takePayment);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.richTextBox1);
+            this.panel1.Controls.Add(this.formInvoice_richTextBox1);
             this.panel1.Location = new System.Drawing.Point(445, 17);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(288, 364);
@@ -75,14 +76,15 @@
             this.button3.Text = "Print Receipt";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // formInvoice_takePayment
             // 
-            this.button2.Location = new System.Drawing.Point(17, 59);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(254, 37);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Take a payment";
-            this.button2.UseVisualStyleBackColor = true;
+            this.formInvoice_takePayment.Location = new System.Drawing.Point(17, 59);
+            this.formInvoice_takePayment.Name = "formInvoice_takePayment";
+            this.formInvoice_takePayment.Size = new System.Drawing.Size(254, 37);
+            this.formInvoice_takePayment.TabIndex = 3;
+            this.formInvoice_takePayment.Text = "Take a payment";
+            this.formInvoice_takePayment.UseVisualStyleBackColor = true;
+            this.formInvoice_takePayment.Click += new System.EventHandler(this.formInvoice_takePayment_Click);
             // 
             // button1
             // 
@@ -102,22 +104,15 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Patient\'s Balance";
             // 
-            // richTextBox1
+            // formInvoice_richTextBox1
             // 
-            this.richTextBox1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.richTextBox1.Location = new System.Drawing.Point(17, 203);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(255, 90);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel2.Location = new System.Drawing.Point(14, 40);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(413, 343);
-            this.panel2.TabIndex = 1;
+            this.formInvoice_richTextBox1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.formInvoice_richTextBox1.Location = new System.Drawing.Point(17, 203);
+            this.formInvoice_richTextBox1.Name = "formInvoice_richTextBox1";
+            this.formInvoice_richTextBox1.ReadOnly = true;
+            this.formInvoice_richTextBox1.Size = new System.Drawing.Size(255, 90);
+            this.formInvoice_richTextBox1.TabIndex = 0;
+            this.formInvoice_richTextBox1.Text = "";
             // 
             // label2
             // 
@@ -155,21 +150,32 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "Amount Due";
             // 
+            // formInvoice_dataGridView
+            // 
+            this.formInvoice_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.formInvoice_dataGridView.Location = new System.Drawing.Point(12, 51);
+            this.formInvoice_dataGridView.Name = "formInvoice_dataGridView";
+            this.formInvoice_dataGridView.RowHeadersWidth = 51;
+            this.formInvoice_dataGridView.RowTemplate.Height = 29;
+            this.formInvoice_dataGridView.Size = new System.Drawing.Size(415, 330);
+            this.formInvoice_dataGridView.TabIndex = 6;
+            // 
             // FormInvoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(748, 404);
+            this.Controls.Add(this.formInvoice_dataGridView);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FormInvoice";
             this.Text = "FormInvoice";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.formInvoice_dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,15 +185,15 @@
 
         private Panel panel1;
         private Button button3;
-        private Button button2;
+        private Button formInvoice_takePayment;
         private Button button1;
         private Label label1;
-        private RichTextBox richTextBox1;
+        private RichTextBox formInvoice_richTextBox1;
         private Button button4;
-        private Panel panel2;
         private Label label2;
         private Label label3;
         private Label label4;
         private Label label5;
+        private DataGridView formInvoice_dataGridView;
     }
 }

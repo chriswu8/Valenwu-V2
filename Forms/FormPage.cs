@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Valenwu.DAO;
+using Valenwu.Entities;
 
 namespace Valenwu
 {
@@ -23,7 +24,8 @@ namespace Valenwu
 
         public void displayAppointments(int month, int day, int year)
         {
-            appointmentBinding.DataSource = appointmentDAO.getAppointmentsForPatient(month, day, year);
+            appointmentBinding.DataSource = appointmentDAO.getAppointmentsForPatientInnerJoin(month, day, year);
+
             dataGridView1.DataSource = appointmentBinding;
         }
         

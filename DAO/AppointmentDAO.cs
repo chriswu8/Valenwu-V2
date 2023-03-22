@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,6 +57,57 @@ namespace Valenwu.DAO
             {
                 Console.WriteLine("Error: " + ex.Message);
             }
+
+            return returnPatients;
+        }
+
+        public List<JObject> getAppointmentsForPatientInnerJoin(int month, int day, int year)
+        {
+            List<JObject> returnPatients = new List<JObject>();
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Define the SQL query
+                    MySqlCommand command = new MySqlCommand("SELECT appointment.TIME, patient.FIRST_NAME, patient.LAST_NAME, appointment.EXAM, patient.PHONE, patient.EMAIL FROM `appointment` inner join patient where appointment.patient_ID = patient.ID and appointment.MONTH = @month and appointment.DAY = @day and appointment.YEAR = @year", connection);
+
+                    command.Parameters.AddWithValue("@month", month);
+                    command.Parameters.AddWithValue("@day", day);
+                    command.Parameters.AddWithValue("@year", year);
+
+
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+
+                        
+
+                        while (reader.Read())
+                        {
+
+                            JObject newAppointment = new JObject();
+
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                newAppointment.Add(reader.GetName(i).ToString(), reader.GetValue(i).ToString());
+                            }
+
+                            returnPatients.Add(newAppointment);
+                        }
+                    }
+
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            
 
             return returnPatients;
         }

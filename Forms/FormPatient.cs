@@ -43,7 +43,10 @@ namespace Valenwu
 
         private void take_payment_Click(object sender, EventArgs e)
         {
-            FormPayment fp = new FormPayment(this);
+            Patient selectedPatient = (Patient)dataGridView1.SelectedRows[0].DataBoundItem;
+            FormInvoice fp = new FormInvoice(this, selectedPatient);
+            fp.MdiParent = this.MdiParent;
+            fp.Show();
         }
 
         private void schedule_patient_Click(object sender, EventArgs e)
