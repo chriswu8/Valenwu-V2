@@ -30,12 +30,12 @@
         {
             this.BookButton = new System.Windows.Forms.Button();
             this.ProductsButton = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.MaterialsButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.DaysActivityButton = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.BalanceTheCashButton = new System.Windows.Forms.Button();
+            this.GeneratePDFButton = new System.Windows.Forms.Button();
             this.PatientsButton = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -65,15 +65,15 @@
             this.ProductsButton.Text = "Products";
             this.ProductsButton.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // MaterialsButton
             // 
-            this.button5.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.button5.Location = new System.Drawing.Point(573, 12);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(135, 49);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Materials";
-            this.button5.UseVisualStyleBackColor = false;
+            this.MaterialsButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.MaterialsButton.Location = new System.Drawing.Point(573, 12);
+            this.MaterialsButton.Name = "MaterialsButton";
+            this.MaterialsButton.Size = new System.Drawing.Size(135, 49);
+            this.MaterialsButton.TabIndex = 4;
+            this.MaterialsButton.Text = "Materials";
+            this.MaterialsButton.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
@@ -102,25 +102,25 @@
             this.DaysActivityButton.UseVisualStyleBackColor = true;
             this.DaysActivityButton.Click += new System.EventHandler(this.OpenFormButton_Click);
             // 
-            // button7
+            // BalanceTheCashButton
             // 
-            this.button7.Location = new System.Drawing.Point(779, 133);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(206, 32);
-            this.button7.TabIndex = 9;
-            this.button7.Text = "Balance The Cash";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.OpenFormButton_Click);
+            this.BalanceTheCashButton.Location = new System.Drawing.Point(779, 133);
+            this.BalanceTheCashButton.Name = "BalanceTheCashButton";
+            this.BalanceTheCashButton.Size = new System.Drawing.Size(206, 32);
+            this.BalanceTheCashButton.TabIndex = 9;
+            this.BalanceTheCashButton.Text = "Balance The Cash";
+            this.BalanceTheCashButton.UseVisualStyleBackColor = true;
+            this.BalanceTheCashButton.Click += new System.EventHandler(this.OpenFormButton_Click);
             // 
-            // button8
+            // GeneratePDFButton
             // 
-            this.button8.Location = new System.Drawing.Point(779, 188);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(206, 32);
-            this.button8.TabIndex = 10;
-            this.button8.Text = "Generate PDF";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.OpenFormButton_Click);
+            this.GeneratePDFButton.Location = new System.Drawing.Point(779, 188);
+            this.GeneratePDFButton.Name = "GeneratePDFButton";
+            this.GeneratePDFButton.Size = new System.Drawing.Size(206, 32);
+            this.GeneratePDFButton.TabIndex = 10;
+            this.GeneratePDFButton.Text = "Generate PDF";
+            this.GeneratePDFButton.UseVisualStyleBackColor = true;
+            this.GeneratePDFButton.Click += new System.EventHandler(this.OpenFormButton_Click);
             // 
             // PatientsButton
             // 
@@ -173,12 +173,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.PatientsButton);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
+            this.Controls.Add(this.GeneratePDFButton);
+            this.Controls.Add(this.BalanceTheCashButton);
             this.Controls.Add(this.DaysActivityButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.MaterialsButton);
             this.Controls.Add(this.ProductsButton);
             this.Controls.Add(this.BookButton);
             this.IsMdiContainer = true;
@@ -205,5 +205,8 @@
         private Label label1;
         private Button ServicesButton;
         private Button DaysActivityButton;
+        private Button BalanceTheCashButton;
+        private Button GeneratePDFButton;
+        private Button MaterialsButton;
     }
 }
