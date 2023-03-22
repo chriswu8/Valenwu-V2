@@ -33,7 +33,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
+            this.DaysActivityButton = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.PatientsButton = new System.Windows.Forms.Button();
@@ -92,14 +92,15 @@
             this.label2.Size = new System.Drawing.Size(0, 20);
             this.label2.TabIndex = 6;
             // 
-            // button6
+            // DaysActivityButton
             // 
-            this.button6.Location = new System.Drawing.Point(779, 77);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(206, 32);
-            this.button6.TabIndex = 8;
-            this.button6.Text = "Day\'s Activity";
-            this.button6.UseVisualStyleBackColor = true;
+            this.DaysActivityButton.Location = new System.Drawing.Point(779, 77);
+            this.DaysActivityButton.Name = "DaysActivityButton";
+            this.DaysActivityButton.Size = new System.Drawing.Size(206, 32);
+            this.DaysActivityButton.TabIndex = 8;
+            this.DaysActivityButton.Text = "Day\'s Activity";
+            this.DaysActivityButton.UseVisualStyleBackColor = true;
+            this.DaysActivityButton.Click += new System.EventHandler(this.OpenFormButton_Click);
             // 
             // button7
             // 
@@ -109,6 +110,7 @@
             this.button7.TabIndex = 9;
             this.button7.Text = "Balance The Cash";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.OpenFormButton_Click);
             // 
             // button8
             // 
@@ -118,6 +120,7 @@
             this.button8.TabIndex = 10;
             this.button8.Text = "Generate PDF";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.OpenFormButton_Click);
             // 
             // PatientsButton
             // 
@@ -172,7 +175,7 @@
             this.Controls.Add(this.PatientsButton);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.DaysActivityButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button5);
@@ -201,5 +204,6 @@
         private PictureBox pictureBox2;
         private Label label1;
         private Button ServicesButton;
+        private Button DaysActivityButton;
     }
 }

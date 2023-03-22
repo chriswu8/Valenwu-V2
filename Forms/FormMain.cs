@@ -70,7 +70,12 @@ namespace Valenwu
                 servicesForm.StartPosition = FormStartPosition.CenterScreen;
                 servicesForm.Show();
             }
+            else if (sender == DaysActivityButton)
+            {
+                FormEOD endOfDayForm = new FormEOD();
+                endOfDayForm.StartPosition = FormStartPosition.CenterScreen;
+                endOfDayForm.Show();
+            }
         }
-
     }
 }
