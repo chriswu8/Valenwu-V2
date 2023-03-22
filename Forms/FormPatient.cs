@@ -33,39 +33,42 @@ namespace Valenwu
             dataGridView1.DataSource = patientBinding; 
         }
 
-        private void add_new_patient_Click(object sender, EventArgs e)
+        private void patient_button_Click(object sender, EventArgs e)
         {
-            FormPatientInfo fp = new FormPatientInfo(this);
-            fp.MdiParent = this.MdiParent;
-            fp.Show();
-            DisplayAllPatientsOnLoad();
-        }
+            if (sender == add_new_patient)
+            {
+                FormPatientInfo fp = new FormPatientInfo(this);
+                fp.MdiParent = this.MdiParent;
+                fp.Show();
+                DisplayAllPatientsOnLoad();
+            }
+            else if (sender == edit_patient)
+            {
+            
+            }
+            else if (sender == delete_patient)
+            {
 
-        private void take_payment_Click(object sender, EventArgs e)
-        {
-            Patient selectedPatient = (Patient)dataGridView1.SelectedRows[0].DataBoundItem;
-            FormInvoice fp = new FormInvoice(this, selectedPatient);
-            fp.MdiParent = this.MdiParent;
-            fp.Show();
-        }
+            }
+            else if (sender == view_invoice)
+            {
+                Patient selectedPatient = (Patient)dataGridView1.SelectedRows[0].DataBoundItem;
+                FormInvoice fp = new FormInvoice(this, selectedPatient);
+                fp.MdiParent = this.MdiParent;
+                fp.Show();
+            }
+            else if (sender == schedule_patient)
+            {
+                Patient selectedPatient = (Patient)dataGridView1.SelectedRows[0].DataBoundItem;
 
-        private void schedule_patient_Click(object sender, EventArgs e)
-        {
-            /*FormConfirmAppointment fp = new FormConfirmAppointment();
-            fp.MdiParent = this.MdiParent;
-            fp.Show();*/
-
-            // select patient from data grid view
-            // pass to cofirm appt form
-            // 
-
-            // grabs all patient info of selected patient in data grid view
-            Patient selectedPatient = (Patient)dataGridView1.SelectedRows[0].DataBoundItem;
-
-            FormConfirmAppointment fp = new FormConfirmAppointment(selectedPatient);
-            fp.MdiParent = this.MdiParent;
-            fp.Show();
-
+                FormConfirmAppointment fp = new FormConfirmAppointment(selectedPatient);
+                fp.MdiParent = this.MdiParent;
+                fp.Show();
+            }
+            else if (sender == exit_patient_button)
+            {
+                this.Close();
+            }
         }
     }
 }
