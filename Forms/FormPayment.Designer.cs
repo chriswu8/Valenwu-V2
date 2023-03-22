@@ -48,9 +48,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.items_services_label = new System.Windows.Forms.Label();
+            this.hst_gst_label = new System.Windows.Forms.Label();
+            this.pst_label = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -236,41 +236,41 @@
             this.label10.TabIndex = 19;
             this.label10.Text = "Items/Services:";
             // 
-            // label11
+            // items_services_label
             // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label11.Location = new System.Drawing.Point(651, 109);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(44, 20);
-            this.label11.TabIndex = 20;
-            this.label11.Text = "$0.00";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.items_services_label.AutoSize = true;
+            this.items_services_label.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.items_services_label.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.items_services_label.Location = new System.Drawing.Point(651, 109);
+            this.items_services_label.Name = "items_services_label";
+            this.items_services_label.Size = new System.Drawing.Size(44, 20);
+            this.items_services_label.TabIndex = 20;
+            this.items_services_label.Text = "$0.00";
+            this.items_services_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label12
+            // hst_gst_label
             // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label12.Location = new System.Drawing.Point(651, 150);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(44, 20);
-            this.label12.TabIndex = 21;
-            this.label12.Text = "$0.00";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.hst_gst_label.AutoSize = true;
+            this.hst_gst_label.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.hst_gst_label.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.hst_gst_label.Location = new System.Drawing.Point(651, 150);
+            this.hst_gst_label.Name = "hst_gst_label";
+            this.hst_gst_label.Size = new System.Drawing.Size(44, 20);
+            this.hst_gst_label.TabIndex = 21;
+            this.hst_gst_label.Text = "$0.00";
+            this.hst_gst_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label13
+            // pst_label
             // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label13.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label13.Location = new System.Drawing.Point(651, 187);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(44, 20);
-            this.label13.TabIndex = 22;
-            this.label13.Text = "$0.00";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.pst_label.AutoSize = true;
+            this.pst_label.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pst_label.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pst_label.Location = new System.Drawing.Point(651, 187);
+            this.pst_label.Name = "pst_label";
+            this.pst_label.Size = new System.Drawing.Size(44, 20);
+            this.pst_label.TabIndex = 22;
+            this.pst_label.Text = "$0.00";
+            this.pst_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label14
             // 
@@ -290,9 +290,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(746, 416);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.pst_label);
+            this.Controls.Add(this.hst_gst_label);
+            this.Controls.Add(this.items_services_label);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -346,5 +346,8 @@
         private Label label12;
         private Label label13;
         private Label label14;
+        private Label items_services_label;
+        private Label hst_gst_label;
+        private Label pst_label;
     }
 }
