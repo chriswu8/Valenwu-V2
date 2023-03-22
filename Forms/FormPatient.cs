@@ -66,7 +66,7 @@ namespace Valenwu
                     }
                     else
                     {
-                        MessageBox.Show("Error deleting patient.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("This patient currently has an appointment or outstanding invoice.\nCannot delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
