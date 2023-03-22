@@ -48,7 +48,27 @@ namespace Valenwu
             }
             else if (sender == delete_patient)
             {
+                // Retrieve the selected Patient object from the DataGridView control
+                Patient selectedPatient = (Patient)dataGridView1.SelectedRows[0].DataBoundItem;
 
+                // Prompt the user to confirm the deletion
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this patient?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                // If the user confirms the deletion, delete the patient record from the database
+                if (result == DialogResult.Yes)
+                {
+                    int rowsAffected = patientDAO.deleteOnePatient(selectedPatient);
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Patient deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DisplayAllPatientsOnLoad();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error deleting patient.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
             else if (sender == view_invoice)
             {
