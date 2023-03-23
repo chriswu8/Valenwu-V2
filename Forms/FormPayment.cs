@@ -58,7 +58,7 @@ namespace Valenwu
 
         private void formPayment_save_Click(object sender, EventArgs e)
         {
-            int paymentSuccess = invoiceDAO.updateInvoice(currentInvoice);
+            int paymentSuccess = invoiceDAO.updateInvoice(currentInvoice, totalPayment);
 
             if (paymentSuccess >= 1)
             {

@@ -25,11 +25,12 @@ namespace Valenwu.DAO
                 {
                     connection.Open();
 
-                    MySqlCommand command = new MySqlCommand("INSERT INTO `invoice`(`patient_ID`, `service_ID`, `FEE`) VALUES (@patientID, @serviceID, @fee)", connection);
+                    MySqlCommand command = new MySqlCommand("INSERT INTO `invoice`(`patient_ID`, `service_ID`, `FEE`, `TOTAL_PAID`) VALUES (@patientID, @serviceID, @fee, @total_paid)", connection);
 
                     command.Parameters.AddWithValue("@patientID", invoice.patientID);
                     command.Parameters.AddWithValue("@serviceID", invoice.serviceID);
                     command.Parameters.AddWithValue("@fee", invoice.fee);
+                    command.Parameters.AddWithValue("@total_paid", 0);
 
 
                     result = command.ExecuteNonQuery();
@@ -58,7 +59,7 @@ namespace Valenwu.DAO
                     connection.Open();
 
                     // Define the SQL query
-                    MySqlCommand command = new MySqlCommand("SELECT invoice.ID, patient.FIRST_NAME, patient.LAST_NAME, service.CODE, invoice.FEE FROM `invoice` inner join service on service.ID = invoice.service_ID inner join patient on patient.ID = invoice.patient_ID where invoice.patient_ID = @patientID AND invoice.FEE > 0", connection);
+                    MySqlCommand command = new MySqlCommand("SELECT invoice.ID, patient.FIRST_NAME, patient.LAST_NAME, service.CODE, invoice.FEE, invoice.TOTAL_PAID FROM `invoice` inner join service on service.ID = invoice.service_ID inner join patient on patient.ID = invoice.patient_ID where invoice.patient_ID = @patientID AND invoice.FEE > 0", connection);
 
                     command.Parameters.AddWithValue("@patientID", patientID);
 
@@ -132,7 +133,7 @@ namespace Valenwu.DAO
             return result;
         }
 
-        public int updateInvoice(JObject invoice)
+        public int updateInvoice(JObject invoice, double totalPayment)
         {
             int result = 0;
 
@@ -142,10 +143,11 @@ namespace Valenwu.DAO
                 {
                     connection.Open();
 
-                    MySqlCommand command = new MySqlCommand("UPDATE `invoice` SET `FEE`= @fee WHERE `ID` = @id", connection);
+                    MySqlCommand command = new MySqlCommand("UPDATE `invoice` SET `FEE`= @fee, `TOTAL_PAID` = @total_paid  WHERE `ID` = @id", connection);
 
                     
                     command.Parameters.AddWithValue("@fee", 0);
+                    command.Parameters.AddWithValue("@total_paid", totalPayment);
                     command.Parameters.AddWithValue("@id", invoice["ID"]);
                     
 

@@ -72,7 +72,7 @@ namespace Valenwu.DAO
                     connection.Open();
 
                     // Define the SQL query
-                    MySqlCommand command = new MySqlCommand("SELECT appointment.TIME, patient.FIRST_NAME, patient.LAST_NAME, appointment.EXAM, appointment.FEE FROM `appointment` inner join patient on appointment.patient_ID = patient.ID inner join invoice on invoice.ID = appointment.invoice_ID where appointment.MONTH = @month and appointment.DAY = @day and appointment.YEAR = @year and invoice.FEE = 0", connection);
+                    MySqlCommand command = new MySqlCommand("SELECT appointment.TIME, patient.FIRST_NAME, patient.LAST_NAME, appointment.EXAM, invoice.TOTAL_PAID FROM `appointment` inner join patient on appointment.patient_ID = patient.ID inner join invoice on invoice.ID = appointment.invoice_ID where appointment.MONTH = @month and appointment.DAY = @day and appointment.YEAR = @year and invoice.FEE = 0", connection);
 
                     command.Parameters.AddWithValue("@month", month);
                     command.Parameters.AddWithValue("@day", day);

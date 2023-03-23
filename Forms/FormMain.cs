@@ -3,7 +3,7 @@ namespace Valenwu
     public partial class Valenwu : Form
     {
         
-        private int totalRevenue = 0;
+        private double totalRevenue = 0;
         FormEOD endOfDayForm;
         public Valenwu()
         {

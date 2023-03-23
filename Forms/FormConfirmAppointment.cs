@@ -59,6 +59,7 @@ namespace Valenwu
                     patientID = patient.ID,
                     serviceID = individualService.Id,
                     fee = individualService.Fee,
+                    totalPaid = 0
                 };
 
                 // write to invoice table
