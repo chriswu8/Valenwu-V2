@@ -52,9 +52,26 @@ namespace Valenwu
             formInvoice_dataGridView.DataSource = invoiceBinding;
         }
 
-        private void formInvoice_takePayment_Click(object sender, EventArgs e)
+        private void invoice_button_Click(object sender, EventArgs e)
         {
+            if (sender == NewInvoiceButton)
+            {
+                // TODO
+            }
+            else if (sender == TakeAPaymentButton)
+            {
+                // TODO
+            }
+            else if (sender == ClearInvoicesButton)
+            {
+                // TODO
+            }
+            else if (sender == ExitInvoiceButton)
+            {
+                this.Close();
+            }
 
         }
+
     }
 }

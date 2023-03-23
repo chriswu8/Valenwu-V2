@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.formInvoice_takePayment = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ExitInvoiceButton = new System.Windows.Forms.Button();
+            this.ClearInvoicesButton = new System.Windows.Forms.Button();
+            this.TakeAPaymentButton = new System.Windows.Forms.Button();
+            this.NewInvoiceButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.formInvoice_richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,10 +47,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.formInvoice_takePayment);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.ExitInvoiceButton);
+            this.panel1.Controls.Add(this.ClearInvoicesButton);
+            this.panel1.Controls.Add(this.TakeAPaymentButton);
+            this.panel1.Controls.Add(this.NewInvoiceButton);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.formInvoice_richTextBox1);
             this.panel1.Location = new System.Drawing.Point(445, 17);
@@ -58,42 +58,45 @@
             this.panel1.Size = new System.Drawing.Size(288, 364);
             this.panel1.TabIndex = 0;
             // 
-            // button4
+            // ExitInvoiceButton
             // 
-            this.button4.Location = new System.Drawing.Point(175, 313);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(96, 39);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Exit";
-            this.button4.UseVisualStyleBackColor = true;
+            this.ExitInvoiceButton.Location = new System.Drawing.Point(175, 313);
+            this.ExitInvoiceButton.Name = "ExitInvoiceButton";
+            this.ExitInvoiceButton.Size = new System.Drawing.Size(96, 39);
+            this.ExitInvoiceButton.TabIndex = 5;
+            this.ExitInvoiceButton.Text = "Exit";
+            this.ExitInvoiceButton.UseVisualStyleBackColor = true;
+            this.ExitInvoiceButton.Click += new System.EventHandler(this.invoice_button_Click);
             // 
-            // button3
+            // ClearInvoicesButton
             // 
-            this.button3.Location = new System.Drawing.Point(17, 102);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(254, 37);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Print Receipt";
-            this.button3.UseVisualStyleBackColor = true;
+            this.ClearInvoicesButton.Location = new System.Drawing.Point(17, 102);
+            this.ClearInvoicesButton.Name = "ClearInvoicesButton";
+            this.ClearInvoicesButton.Size = new System.Drawing.Size(254, 37);
+            this.ClearInvoicesButton.TabIndex = 4;
+            this.ClearInvoicesButton.Text = "Clear Invoices";
+            this.ClearInvoicesButton.UseVisualStyleBackColor = true;
+            this.ClearInvoicesButton.Click += new System.EventHandler(this.invoice_button_Click);
             // 
-            // formInvoice_takePayment
+            // TakeAPaymentButton
             // 
-            this.formInvoice_takePayment.Location = new System.Drawing.Point(17, 59);
-            this.formInvoice_takePayment.Name = "formInvoice_takePayment";
-            this.formInvoice_takePayment.Size = new System.Drawing.Size(254, 37);
-            this.formInvoice_takePayment.TabIndex = 3;
-            this.formInvoice_takePayment.Text = "Take a payment";
-            this.formInvoice_takePayment.UseVisualStyleBackColor = true;
-            this.formInvoice_takePayment.Click += new System.EventHandler(this.formInvoice_takePayment_Click);
+            this.TakeAPaymentButton.Location = new System.Drawing.Point(17, 59);
+            this.TakeAPaymentButton.Name = "TakeAPaymentButton";
+            this.TakeAPaymentButton.Size = new System.Drawing.Size(254, 37);
+            this.TakeAPaymentButton.TabIndex = 3;
+            this.TakeAPaymentButton.Text = "Take a payment";
+            this.TakeAPaymentButton.UseVisualStyleBackColor = true;
+            this.TakeAPaymentButton.Click += new System.EventHandler(this.invoice_button_Click);
             // 
-            // button1
+            // NewInvoiceButton
             // 
-            this.button1.Location = new System.Drawing.Point(18, 16);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(254, 37);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Make a new invoice";
-            this.button1.UseVisualStyleBackColor = true;
+            this.NewInvoiceButton.Location = new System.Drawing.Point(18, 16);
+            this.NewInvoiceButton.Name = "NewInvoiceButton";
+            this.NewInvoiceButton.Size = new System.Drawing.Size(254, 37);
+            this.NewInvoiceButton.TabIndex = 2;
+            this.NewInvoiceButton.Text = "Make a new invoice";
+            this.NewInvoiceButton.UseVisualStyleBackColor = true;
+            this.NewInvoiceButton.Click += new System.EventHandler(this.invoice_button_Click);
             // 
             // label1
             // 
@@ -184,12 +187,12 @@
         #endregion
 
         private Panel panel1;
-        private Button button3;
-        private Button formInvoice_takePayment;
-        private Button button1;
+        private Button ClearInvoicesButton;
+        private Button TakeAPaymentButton;
+        private Button NewInvoiceButton;
         private Label label1;
         private RichTextBox formInvoice_richTextBox1;
-        private Button button4;
+        private Button ExitInvoiceButton;
         private Label label2;
         private Label label3;
         private Label label4;
