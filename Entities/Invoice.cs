@@ -11,5 +11,6 @@ namespace Valenwu.Entities
         public int ID { get; set; }
         public int patientID { get; set; }
         public int serviceID { get; set; }
+        public int fee { get; set; }
     }
 }

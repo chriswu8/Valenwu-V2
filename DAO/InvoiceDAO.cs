@@ -26,11 +26,12 @@ namespace Valenwu.DAO
                 {
                     connection.Open();
 
-                    MySqlCommand command = new MySqlCommand("INSERT INTO `invoice`(`patient_ID`, `service_ID`) VALUES (@patientID, @serviceID)", connection);
+                    MySqlCommand command = new MySqlCommand("INSERT INTO `invoice`(`patient_ID`, `service_ID`, `FEE`) VALUES (@patientID, @serviceID, @fee)", connection);
 
                     command.Parameters.AddWithValue("@patientID", invoice.patientID);
                     command.Parameters.AddWithValue("@serviceID", invoice.serviceID);
-                    
+                    command.Parameters.AddWithValue("@fee", invoice.fee);
+
 
                     result = command.ExecuteNonQuery();
                     testid = (int)command.LastInsertedId;
@@ -58,7 +59,7 @@ namespace Valenwu.DAO
                     connection.Open();
 
                     // Define the SQL query
-                    MySqlCommand command = new MySqlCommand("SELECT patient.FIRST_NAME, patient.LAST_NAME, service.CODE, service.FEE FROM `invoice` inner join service on service.ID = invoice.service_ID inner join patient on patient.ID = invoice.patient_ID where invoice.patient_ID = @patientID", connection);
+                    MySqlCommand command = new MySqlCommand("SELECT invoice.ID, patient.FIRST_NAME, patient.LAST_NAME, service.CODE, invoice.FEE FROM `invoice` inner join service on service.ID = invoice.service_ID inner join patient on patient.ID = invoice.patient_ID where invoice.patient_ID = @patientID", connection);
 
                     command.Parameters.AddWithValue("@patientID", patientID);
 

@@ -51,7 +51,8 @@ namespace Valenwu
             Invoice invoice = new Invoice
             {
                 patientID = patient.ID,
-                serviceID = individualService.Id
+                serviceID = individualService.Id,
+                fee = individualService.Fee,
             };
 
             // write to invoice table
