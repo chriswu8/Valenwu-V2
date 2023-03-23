@@ -54,7 +54,24 @@ namespace Valenwu
 
         private void form_patient_info_save_Click(object sender, EventArgs e)
         {
-            
+            // Update the patient object with the values from the form fields
+            /*patient.LastName = LastNameTextbox.Text;
+            patient.FirstName = FirstNameTextbox.Text;
+            patient.MiddleName = MiddleNameTextbox.Text;
+            patient.Address = AddressTextbox.Text;
+            patient.Province = ProvinceTextbox.Text;
+            patient.City = CityTextbox.Text;
+            patient.PostalCode = PostalCodeTextbox.Text;
+            patient.BirthDate = BirthdayTextbox.Text;
+            patient.PHN = PHNTextbox.Text;
+            patient.Phone = PhoneTextbox.Text;
+            patient.Email = EmailTextbox.Text;
+            patient.Occupation = OccupationTextbox.Text;
+            patient.Insurance = InsuranceTextbox.Text;
+            patient.LastVisit = LastVistTextbox.Text;
+            patient.FirstVisit = FirstVisitTextbox.Text;
+            patient.Misc = MiscTextbox.Text;*/
+
             Patient patient = new Patient
             {
                 LastName = LastNameTextbox.Text,
@@ -74,8 +91,6 @@ namespace Valenwu
                 FirstVisit = FirstVisitTextbox.Text,
                 Misc = MiscTextbox.Text
             };
-
-            // merge to main
 
             // Update the patient record in the database
             int result = patientDAO.addOnePatient( patient );
