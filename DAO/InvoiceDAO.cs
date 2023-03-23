@@ -13,9 +13,12 @@ namespace Valenwu.DAO
     {
         string connectionString = "datasource=localhost;port=3306;username=root;password=root;database=valenwu_db";
 
-        internal int addOneInvoice(int servicePrimaryKey, int patientPrimaryKey)
+        internal int addOneInvoice(Invoice invoice)
         {
             int result = 0;
+            int testid = 0;
+
+            
 
             try
             {
@@ -25,11 +28,13 @@ namespace Valenwu.DAO
 
                     MySqlCommand command = new MySqlCommand("INSERT INTO `invoice`(`patient_ID`, `service_ID`) VALUES (@patientID, @serviceID)", connection);
 
-                    command.Parameters.AddWithValue("@patientID", patientPrimaryKey);
-                    command.Parameters.AddWithValue("@serviceID", servicePrimaryKey);
+                    command.Parameters.AddWithValue("@patientID", invoice.patientID);
+                    command.Parameters.AddWithValue("@serviceID", invoice.serviceID);
                     
 
                     result = command.ExecuteNonQuery();
+                    testid = (int)command.LastInsertedId;
+                    
                 }
             }
             catch (Exception ex)
@@ -37,7 +42,9 @@ namespace Valenwu.DAO
                 Console.WriteLine("Error: " + ex.Message);
             }
 
-            return result;
+            
+
+            return testid;
         }
 
         public List<JObject> getAllInvoicesFromPatient(int patientID)
@@ -90,6 +97,37 @@ namespace Valenwu.DAO
             
 
             return returnInvoices;
+        }
+
+        internal int deleteInvoiceFromAppointment(int invoiceID)
+        {
+            int result = 0;
+
+            // TIME, FIRST_NAME, LAST_NAME, "EXAM", "PHONE", "EMAIL"
+            /*string firstName = patientDetails["FIRST_NAME"].ToString();
+            string lastName = patientDetails["LAST_NAME"].ToString();
+            string phone = patientDetails["PHONE"].ToString();
+            string email = patientDetails["EMAIL"].ToString();*/
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    MySqlCommand command = new MySqlCommand("DELETE FROM `invoice` WHERE ID = @id", connection);
+
+                    command.Parameters.AddWithValue("@id", invoiceID);
+
+                    result = command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            return result;
         }
 
 

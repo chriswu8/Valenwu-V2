@@ -61,6 +61,7 @@ namespace Valenwu
             else if (sender == TakeAPaymentButton)
             {
                 // TODO
+                JObject selectedPatient = (JObject)formInvoice_dataGridView.SelectedRows[0].DataBoundItem;
             }
             else if (sender == ClearInvoicesButton)
             {

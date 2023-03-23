@@ -43,29 +43,6 @@ namespace Valenwu
 
         private void formConfirmAppt_save_Click(object sender, EventArgs e)
         {
-            /*var a = formConfirmAppt_date.Value.Year.ToString();
-            var b = formConfirmAppt_date.Value.Month.ToString();
-            var c = formConfirmAppt_date.Value.Day.ToString();
-
-
-            var d = formConfirmAppt_time.Text;*/
-
-            
-            // generating appointment
-            Appointment appointment = new Appointment
-            {
-                Month = formConfirmAppt_date.Value.Month.ToString(),
-                Day = formConfirmAppt_date.Value.Day.ToString(),
-                Year = formConfirmAppt_date.Value.Year.ToString(),
-                Time = formConfirmAppt_time.Value.TimeOfDay.ToString(),
-                Exam = formConfirmAppointment_exam_drop_down.SelectedItem.ToString(),
-                Fee = FeeTextbox.Text,
-                PatientID = patient.ID
-            };
-
-
-            // sql statement that inserts appointment into appointment table
-            int result = appointmentDAO.addAppointmentByPatient(appointment);
 
             // get service id from the corresponding exam
             Service individualService = serviceDAO.getOneService(formConfirmAppointment_exam_drop_down.SelectedItem.ToString());
@@ -78,7 +55,25 @@ namespace Valenwu
             };
 
             // write to invoice table
-            invoiceDAO.addOneInvoice(individualService.Id, patient.ID);
+            var invoiceID = invoiceDAO.addOneInvoice(invoice);
+
+
+            // generating appointment
+            Appointment appointment = new Appointment
+            {
+                Month = formConfirmAppt_date.Value.Month.ToString(),
+                Day = formConfirmAppt_date.Value.Day.ToString(),
+                Year = formConfirmAppt_date.Value.Year.ToString(),
+                Time = formConfirmAppt_time.Value.TimeOfDay.ToString(),
+                Exam = formConfirmAppointment_exam_drop_down.SelectedItem.ToString(),
+                Fee = FeeTextbox.Text,
+                PatientID = patient.ID,
+                InvoiceID = invoiceID
+            };
+
+
+            // sql statement that inserts appointment into appointment table
+            int result = appointmentDAO.addAppointmentByPatient(appointment);
 
 
             MessageBox.Show(result + " new appointment added!");

@@ -72,7 +72,7 @@ namespace Valenwu.DAO
                     connection.Open();
 
                     // Define the SQL query
-                    MySqlCommand command = new MySqlCommand("SELECT appointment.ID, appointment.TIME, patient.FIRST_NAME, patient.LAST_NAME, appointment.EXAM, patient.PHONE, patient.EMAIL FROM `appointment` inner join patient where appointment.patient_ID = patient.ID and appointment.MONTH = @month and appointment.DAY = @day and appointment.YEAR = @year", connection);
+                    MySqlCommand command = new MySqlCommand("SELECT appointment.ID, appointment.TIME, patient.FIRST_NAME, patient.LAST_NAME, appointment.EXAM, patient.PHONE, patient.EMAIL, appointment.invoice_ID FROM `appointment` inner join patient where appointment.patient_ID = patient.ID and appointment.MONTH = @month and appointment.DAY = @day and appointment.YEAR = @year", connection);
 
                     command.Parameters.AddWithValue("@month", month);
                     command.Parameters.AddWithValue("@day", day);
@@ -123,7 +123,7 @@ namespace Valenwu.DAO
                 {
                     connection.Open();
 
-                    MySqlCommand command = new MySqlCommand("INSERT INTO `appointment`(`MONTH`, `DAY`, `YEAR`, `TIME`, `EXAM`, `FEE`, `patient_ID`) VALUES (@month, @day, @year, @time, @exam, @fee, @patient_id)", connection);
+                    MySqlCommand command = new MySqlCommand("INSERT INTO `appointment`(`MONTH`, `DAY`, `YEAR`, `TIME`, `EXAM`, `FEE`, `patient_ID`, `invoice_ID`) VALUES (@month, @day, @year, @time, @exam, @fee, @patient_id, @invoice_id)", connection);
 
                     command.Parameters.AddWithValue("@month", appointment.Month);
                     command.Parameters.AddWithValue("@day", appointment.Day);
@@ -132,8 +132,9 @@ namespace Valenwu.DAO
                     command.Parameters.AddWithValue("@exam", appointment.Exam);
                     command.Parameters.AddWithValue("@fee", appointment.Fee);
                     command.Parameters.AddWithValue("@patient_id", appointment.PatientID);
-                    
-                    
+                    command.Parameters.AddWithValue("@invoice_id", appointment.InvoiceID);
+
+
 
                     result = command.ExecuteNonQuery();
                 }

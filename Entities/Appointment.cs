@@ -16,6 +16,7 @@ namespace Valenwu.Entities
         public string? Exam { get; set; }
         public string? Fee { get; set; }
         public int PatientID { get; set; }
+        public int InvoiceID { get; set; }
         
     }
 }
