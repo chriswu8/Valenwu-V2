@@ -126,6 +126,7 @@
             this.formEOD_total_revenue.Size = new System.Drawing.Size(65, 28);
             this.formEOD_total_revenue.TabIndex = 8;
             this.formEOD_total_revenue.Text = "$ 0.00";
+
             // 
             // FormEOD
             // 

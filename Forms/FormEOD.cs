@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Google.Protobuf.WellKnownTypes;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +23,9 @@ namespace Valenwu
             InitializeComponent();
             eodBinding.DataSource = appointmentDAO.getAppointmentsForEOD(today.Month, today.Day, today.Year);
             formEOD_datagridview.DataSource = eodBinding;
-            formEOD_total_revenue.Text = "$ " + totRevenue.ToString();
+
+            double formattedRevenue = Math.Truncate(totRevenue * 100) / 100;
+            formEOD_total_revenue.Text = "$ " + formattedRevenue;
         }
 
         public double updateTotalRevenue()

@@ -84,20 +84,6 @@ namespace Valenwu.DAO
                     {
                         while (reader.Read())
                         {
-                            /*Appointment p = new Appointment
-                            {
-                                ID = reader.GetInt32(0),
-                                Month = reader.GetString(1),
-                                Day = reader.GetString(2),
-                                Year = reader.GetString(3),
-                                Time = reader.GetString(4),
-                                Exam = reader.GetString(5),
-                                Fee = reader.GetString(6),
-                                PatientID = reader.GetInt32(7)
-                            };
-
-                            returnPatients.Add(p);*/
-
                             JObject newAppointment = new JObject();
 
                             for (int i = 0; i < reader.FieldCount; i++)
