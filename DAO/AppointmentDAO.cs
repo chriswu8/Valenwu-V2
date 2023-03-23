@@ -61,6 +61,65 @@ namespace Valenwu.DAO
             return returnPatients;
         }
 
+        public List<JObject> getAppointmentsForEOD(int month, int day, int year)
+        {
+            List<JObject> returnAppointments = new List<JObject>();
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Define the SQL query
+                    MySqlCommand command = new MySqlCommand("SELECT appointment.TIME, patient.FIRST_NAME, patient.LAST_NAME, appointment.EXAM, appointment.FEE FROM `appointment` inner join patient on appointment.patient_ID = patient.ID inner join invoice on invoice.ID = appointment.invoice_ID where appointment.MONTH = @month and appointment.DAY = @day and appointment.YEAR = @year and invoice.FEE = 0", connection);
+
+                    command.Parameters.AddWithValue("@month", month);
+                    command.Parameters.AddWithValue("@day", day);
+                    command.Parameters.AddWithValue("@year", year);
+
+
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            /*Appointment p = new Appointment
+                            {
+                                ID = reader.GetInt32(0),
+                                Month = reader.GetString(1),
+                                Day = reader.GetString(2),
+                                Year = reader.GetString(3),
+                                Time = reader.GetString(4),
+                                Exam = reader.GetString(5),
+                                Fee = reader.GetString(6),
+                                PatientID = reader.GetInt32(7)
+                            };
+
+                            returnPatients.Add(p);*/
+
+                            JObject newAppointment = new JObject();
+
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                newAppointment.Add(reader.GetName(i).ToString(), reader.GetValue(i).ToString());
+                            }
+
+
+
+                            returnAppointments.Add(newAppointment);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            return returnAppointments;
+        }
+
         public List<JObject> getAppointmentsForPatientInnerJoin(int month, int day, int year)
         {
             List<JObject> returnPatients = new List<JObject>();

@@ -34,10 +34,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.formEOD_datagridview = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.formEOD_total_revenue = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.formEOD_datagridview)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -96,16 +96,16 @@
             this.label6.Text = "_________________________________________________________________________________" +
     "____________";
             // 
-            // dataGridView1
+            // formEOD_datagridview
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(41, 132);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(559, 500);
-            this.dataGridView1.TabIndex = 6;
+            this.formEOD_datagridview.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.formEOD_datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.formEOD_datagridview.Location = new System.Drawing.Point(41, 132);
+            this.formEOD_datagridview.Name = "formEOD_datagridview";
+            this.formEOD_datagridview.RowHeadersWidth = 51;
+            this.formEOD_datagridview.RowTemplate.Height = 29;
+            this.formEOD_datagridview.Size = new System.Drawing.Size(559, 500);
+            this.formEOD_datagridview.TabIndex = 6;
             // 
             // label7
             // 
@@ -117,16 +117,15 @@
             this.label7.TabIndex = 7;
             this.label7.Text = "Total revenue:";
             // 
-            // label8
+            // formEOD_total_revenue
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(537, 649);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 28);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "$ 0.00";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
+            this.formEOD_total_revenue.AutoSize = true;
+            this.formEOD_total_revenue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.formEOD_total_revenue.Location = new System.Drawing.Point(537, 649);
+            this.formEOD_total_revenue.Name = "formEOD_total_revenue";
+            this.formEOD_total_revenue.Size = new System.Drawing.Size(65, 28);
+            this.formEOD_total_revenue.TabIndex = 8;
+            this.formEOD_total_revenue.Text = "$ 0.00";
             // 
             // FormEOD
             // 
@@ -134,9 +133,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(648, 704);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.formEOD_total_revenue);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.formEOD_datagridview);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -145,7 +144,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormEOD";
             this.Text = "FormEOD";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formEOD_datagridview)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,8 +158,8 @@
         private Label label4;
         private Label label5;
         private Label label6;
-        private DataGridView dataGridView1;
+        private DataGridView formEOD_datagridview;
         private Label label7;
-        private Label label8;
+        private Label formEOD_total_revenue;
     }
 }
