@@ -37,6 +37,7 @@ namespace Valenwu
 
         private void service_button_Click(object sender, EventArgs e)
         {
+
             if (sender == addNewServiceButton)
             {
                 FormServiceInfo fp = new FormServiceInfo(this);
