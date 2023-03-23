@@ -37,10 +37,13 @@ namespace Valenwu
 
         private void patient_button_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count == 0)
+            if (sender != exit_patient_button)
             {
-                MessageBox.Show("You have selected a cell. Please select a row (patient).");
-                return;
+                if (dataGridView1.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("You have selected a cell. Please select a row (patient).");
+                    return;
+                }
             }
 
             if (sender == add_new_patient)
