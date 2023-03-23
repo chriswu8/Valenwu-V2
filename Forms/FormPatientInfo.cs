@@ -54,37 +54,37 @@ namespace Valenwu
 
         private void form_patient_info_save_Click(object sender, EventArgs e)
         {
-            
-            Patient patient = new Patient
+            if (sender == form_patient_info_save)
             {
-                LastName = LastNameTextbox.Text,
-                FirstName = FirstNameTextbox.Text,
-                MiddleName = MiddleNameTextbox.Text,
-                Address = AddressTextbox.Text,
-                Province = ProvinceTextbox.Text,
-                City = CityTextbox.Text,
-                PostalCode = PostalCodeTextbox.Text,
-                BirthDate = BirthdayTextbox.Text,
-                PHN = PHNTextbox.Text,
-                Phone = PhoneTextbox.Text,
-                Email = EmailTextbox.Text,
-                Occupation = OccupationTextbox.Text,
-                Insurance = InsuranceTextbox.Text,
-                LastVisit = LastVistTextbox.Text,
-                FirstVisit = FirstVisitTextbox.Text,
-                Misc = MiscTextbox.Text
-            };
+                Patient patient = new Patient
+                {
+                    LastName = LastNameTextbox.Text,
+                    FirstName = FirstNameTextbox.Text,
+                    MiddleName = MiddleNameTextbox.Text,
+                    Address = AddressTextbox.Text,
+                    Province = ProvinceTextbox.Text,
+                    City = CityTextbox.Text,
+                    PostalCode = PostalCodeTextbox.Text,
+                    BirthDate = BirthdayTextbox.Text,
+                    PHN = PHNTextbox.Text,
+                    Phone = PhoneTextbox.Text,
+                    Email = EmailTextbox.Text,
+                    Occupation = OccupationTextbox.Text,
+                    Insurance = InsuranceTextbox.Text,
+                    LastVisit = LastVistTextbox.Text,
+                    FirstVisit = FirstVisitTextbox.Text,
+                    Misc = MiscTextbox.Text
+                };
 
-            // Update the patient record in the database
-            int result = patientDAO.addOnePatient( patient );
-            MessageBox.Show(result + " patient updated!");
+                // Update the patient record in the database
+                int result = patientDAO.addOnePatient(patient);
+                MessageBox.Show(result + " patient updated!");
 
-            // Refresh the DataGridView control on the FormPatient form
-            formPatient.DisplayAllPatientsOnLoad();
+                // Refresh the DataGridView control on the FormPatient form
+                formPatient.DisplayAllPatientsOnLoad();
+            }
 
             this.Close();
         }
-
     }
-
 }
