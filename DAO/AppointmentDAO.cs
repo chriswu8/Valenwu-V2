@@ -72,7 +72,7 @@ namespace Valenwu.DAO
                     connection.Open();
 
                     // Define the SQL query
-                    MySqlCommand command = new MySqlCommand("SELECT appointment.TIME, patient.FIRST_NAME, patient.LAST_NAME, appointment.EXAM, patient.PHONE, patient.EMAIL FROM `appointment` inner join patient where appointment.patient_ID = patient.ID and appointment.MONTH = @month and appointment.DAY = @day and appointment.YEAR = @year", connection);
+                    MySqlCommand command = new MySqlCommand("SELECT appointment.ID, appointment.TIME, patient.FIRST_NAME, patient.LAST_NAME, appointment.EXAM, patient.PHONE, patient.EMAIL FROM `appointment` inner join patient where appointment.patient_ID = patient.ID and appointment.MONTH = @month and appointment.DAY = @day and appointment.YEAR = @year", connection);
 
                     command.Parameters.AddWithValue("@month", month);
                     command.Parameters.AddWithValue("@day", day);
@@ -134,6 +134,37 @@ namespace Valenwu.DAO
                     command.Parameters.AddWithValue("@patient_id", appointment.PatientID);
                     
                     
+
+                    result = command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            return result;
+        }
+
+        internal int deleteOneAppointment(int appointmentID)
+        {
+            int result = 0;
+
+            // TIME, FIRST_NAME, LAST_NAME, "EXAM", "PHONE", "EMAIL"
+            /*string firstName = patientDetails["FIRST_NAME"].ToString();
+            string lastName = patientDetails["LAST_NAME"].ToString();
+            string phone = patientDetails["PHONE"].ToString();
+            string email = patientDetails["EMAIL"].ToString();*/
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    MySqlCommand command = new MySqlCommand("DELETE FROM `appointment` WHERE ID = @id", connection);
+
+                    command.Parameters.AddWithValue("@id", appointmentID);
 
                     result = command.ExecuteNonQuery();
                 }
