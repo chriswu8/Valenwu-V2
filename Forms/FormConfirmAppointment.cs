@@ -85,46 +85,49 @@ namespace Valenwu
 
         private void formConfirmAppt_save_Click(object sender, EventArgs e)
         {
-            if (formConfirmAppointment_exam_drop_down.SelectedItem == null)
+            if (sender == formConfirmAppt_save)
             {
-                MessageBox.Show("Please select an exam code / service type.");
-                return;
+                if (formConfirmAppointment_exam_drop_down.SelectedItem == null)
+                {
+                    MessageBox.Show("Please select an exam code / service type.");
+                    return;
+                }
+
+                // get service id from the corresponding exam
+                Service individualService = serviceDAO.getOneService(formConfirmAppointment_exam_drop_down.SelectedItem.ToString());
+
+                // Generate invoice based on acquired service
+                Invoice invoice = new Invoice
+                {
+                    patientID = patient.ID,
+                    serviceID = individualService.Id,
+                    fee = individualService.Fee,
+                };
+
+                // write to invoice table
+                var invoiceID = invoiceDAO.addOneInvoice(invoice);
+
+
+                // generating appointment
+                Appointment appointment = new Appointment
+                {
+                    Month = formConfirmAppt_date.Value.Month.ToString(),
+                    Day = formConfirmAppt_date.Value.Day.ToString(),
+                    Year = formConfirmAppt_date.Value.Year.ToString(),
+                    Time = formConfirmAppt_time.Value.TimeOfDay.ToString(),
+                    Exam = formConfirmAppointment_exam_drop_down.SelectedItem.ToString(),
+                    Fee = FeeTextbox.Text,
+                    PatientID = patient.ID,
+                    InvoiceID = invoiceID
+                };
+
+
+                // sql statement that inserts appointment into appointment table
+                int result = appointmentDAO.addAppointmentByPatient(appointment);
+
+
+                MessageBox.Show(result + " new appointment added!");
             }
-
-            // get service id from the corresponding exam
-            Service individualService = serviceDAO.getOneService(formConfirmAppointment_exam_drop_down.SelectedItem.ToString());
-
-            // Generate invoice based on acquired service
-            Invoice invoice = new Invoice
-            {
-                patientID = patient.ID,
-                serviceID = individualService.Id,
-                fee = individualService.Fee,
-            };
-
-            // write to invoice table
-            var invoiceID = invoiceDAO.addOneInvoice(invoice);
-
-
-            // generating appointment
-            Appointment appointment = new Appointment
-            {
-                Month = formConfirmAppt_date.Value.Month.ToString(),
-                Day = formConfirmAppt_date.Value.Day.ToString(),
-                Year = formConfirmAppt_date.Value.Year.ToString(),
-                Time = formConfirmAppt_time.Value.TimeOfDay.ToString(),
-                Exam = formConfirmAppointment_exam_drop_down.SelectedItem.ToString(),
-                Fee = FeeTextbox.Text,
-                PatientID = patient.ID,
-                InvoiceID = invoiceID
-            };
-
-
-            // sql statement that inserts appointment into appointment table
-            int result = appointmentDAO.addAppointmentByPatient(appointment);
-
-
-            MessageBox.Show(result + " new appointment added!");
 
             this.Close();
         }

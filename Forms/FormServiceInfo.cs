@@ -41,14 +41,12 @@ namespace Valenwu.Forms
         {
             ServiceDAO serviceDAO = new ServiceDAO();
 
-
             Service service = new Service
             {
                 Code = CodeTextBox.Text,
                 Fee = int.Parse(FeeTextBox.Text),
                 Description = DescriptionTextBox.Text
             };
-
 
             int result = serviceDAO.addOneService(service);
             MessageBox.Show(result + " new service added!");

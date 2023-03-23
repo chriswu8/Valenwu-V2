@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.TitlesComboBox = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.PHNTextbox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -86,7 +87,6 @@
             this.AdditionalNotesTextbox = new System.Windows.Forms.RichTextBox();
             this.form_patient_info_save = new System.Windows.Forms.Button();
             this.form_patient_info_cancel = new System.Windows.Forms.Button();
-            this.TitlesComboBox = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -148,6 +148,14 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "General Information";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // TitlesComboBox
+            // 
+            this.TitlesComboBox.FormattingEnabled = true;
+            this.TitlesComboBox.Location = new System.Drawing.Point(28, 36);
+            this.TitlesComboBox.Name = "TitlesComboBox";
+            this.TitlesComboBox.Size = new System.Drawing.Size(89, 28);
+            this.TitlesComboBox.TabIndex = 68;
             // 
             // label18
             // 
@@ -638,14 +646,7 @@
             this.form_patient_info_cancel.TabIndex = 64;
             this.form_patient_info_cancel.Text = "Cancel";
             this.form_patient_info_cancel.UseVisualStyleBackColor = true;
-            // 
-            // TitlesComboBox
-            // 
-            this.TitlesComboBox.FormattingEnabled = true;
-            this.TitlesComboBox.Location = new System.Drawing.Point(28, 36);
-            this.TitlesComboBox.Name = "TitlesComboBox";
-            this.TitlesComboBox.Size = new System.Drawing.Size(89, 28);
-            this.TitlesComboBox.TabIndex = 68;
+            this.form_patient_info_cancel.Click += new System.EventHandler(this.form_patient_info_save_Click);
             // 
             // FormPatientInfo
             // 

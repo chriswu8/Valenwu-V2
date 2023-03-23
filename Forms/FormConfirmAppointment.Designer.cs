@@ -92,6 +92,7 @@
             this.formConfirmAppt_cancel.TabIndex = 7;
             this.formConfirmAppt_cancel.Text = "Cancel";
             this.formConfirmAppt_cancel.UseVisualStyleBackColor = true;
+            this.formConfirmAppt_cancel.Click += new System.EventHandler(this.formConfirmAppt_save_Click);
             // 
             // FeeTextbox
             // 
