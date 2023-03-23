@@ -1,33 +1,33 @@
 ﻿using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using Valenwu.DAO;
-using Valenwu.Entities;
 
 namespace Valenwu
 {
     public partial class FormPage : Form
     {
-        BindingSource appointmentBinding = new BindingSource();
-        AppointmentDAO appointmentDAO = new AppointmentDAO();
-        InvoiceDAO invoiceDAO = new InvoiceDAO();
+        private BindingSource appointmentBinding = new BindingSource();
+        private AppointmentDAO appointmentDAO = new AppointmentDAO();
+        private InvoiceDAO invoiceDAO = new InvoiceDAO();
         public int formDay;
         public int formMonth;
         public int formYear;
+        public DateTime dateTitle;
 
         public FormPage()
         {
             InitializeComponent();
-            formDay= 0; 
-            formMonth= 0;
-            formYear= 0;
+            formDay = 0;
+            formMonth = 0;
+            formYear = 0;
+        }
+
+        private void updateDateTitle(int year, int month, int day)
+        {
+            this.dateTitle = new DateTime(formYear, formMonth, formDay);
+            if (formYear != 0)
+            {
+                this.DateTitle.Text = dateTitle.ToString("MMMM dd, yyyy");
+            };
         }
 
         public FormPage(int day, int month, int year)
@@ -36,6 +36,8 @@ namespace Valenwu
             formDay = day;
             formMonth = month;
             formYear = year;
+
+            this.updateDateTitle(year, month, day);
         }
 
         public void displayAppointments(int month, int day, int year)
@@ -46,6 +48,8 @@ namespace Valenwu
             {
                 this.dataGridView1.Columns["ID"].Visible = false;
             }
+
+            this.updateDateTitle(formYear, formMonth, formDay);
         }
 
         private void PageButton_Click(object sender, EventArgs e)
@@ -86,7 +90,5 @@ namespace Valenwu
                 this.Close();
             }
         }
-
-
     }
 }

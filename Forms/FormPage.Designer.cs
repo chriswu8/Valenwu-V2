@@ -68,6 +68,7 @@
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DateTitle = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -421,7 +422,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(139, 17);
+            this.label26.Location = new System.Drawing.Point(139, 68);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(60, 20);
             this.label26.TabIndex = 0;
@@ -430,7 +431,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(242, 17);
+            this.label27.Location = new System.Drawing.Point(242, 68);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(54, 20);
             this.label27.TabIndex = 6;
@@ -439,7 +440,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(345, 17);
+            this.label28.Location = new System.Drawing.Point(345, 68);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(56, 20);
             this.label28.TabIndex = 7;
@@ -448,7 +449,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(448, 17);
+            this.label29.Location = new System.Drawing.Point(448, 68);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(60, 20);
             this.label29.TabIndex = 8;
@@ -457,18 +458,28 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(142, 48);
+            this.dataGridView1.Location = new System.Drawing.Point(139, 128);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(596, 488);
+            this.dataGridView1.Size = new System.Drawing.Size(599, 408);
             this.dataGridView1.TabIndex = 9;
+            // 
+            // DateTitle
+            // 
+            this.DateTitle.AutoSize = true;
+            this.DateTitle.Location = new System.Drawing.Point(141, 18);
+            this.DateTitle.Name = "DateTitle";
+            this.DateTitle.Size = new System.Drawing.Size(58, 20);
+            this.DateTitle.TabIndex = 10;
+            this.DateTitle.Text = "label30";
             // 
             // FormPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1030, 641);
+            this.Controls.Add(this.DateTitle);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label29);
             this.Controls.Add(this.label28);
@@ -532,5 +543,6 @@
         private Label label28;
         private Label label29;
         private DataGridView dataGridView1;
+        private Label DateTitle;
     }
 }
