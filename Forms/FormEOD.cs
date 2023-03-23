@@ -17,15 +17,16 @@ namespace Valenwu
         BindingSource eodBinding = new BindingSource();
         AppointmentDAO appointmentDAO = new AppointmentDAO();
         DateTime today = DateTime.Today;
-        public FormEOD()
+        public FormEOD(int totRevenue)
         {
             InitializeComponent();
             eodBinding.DataSource = appointmentDAO.getAppointmentsForEOD(today.Month, today.Day, today.Year);
             formEOD_datagridview.DataSource = eodBinding;
-            updateTotalRevenue();
+
+            formEOD_total_revenue.Text = "$ " + totRevenue.ToString();
         }
 
-        private void updateTotalRevenue()
+        public int updateTotalRevenue()
         {
             List<JObject> allAppointments = appointmentDAO.getAppointmentsForEOD(today.Month, today.Day, today.Year);
             int totalAmount = 0;
@@ -35,7 +36,7 @@ namespace Valenwu
                 totalAmount += Int32.Parse(allAppointments[i]["FEE"].ToString());
             }
 
-            formEOD_total_revenue.Text = "$ " + totalAmount.ToString();
+            return totalAmount;
         }
     }
 }
