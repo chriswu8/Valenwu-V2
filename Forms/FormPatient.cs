@@ -33,6 +33,8 @@ namespace Valenwu
             dataGridView1.DataSource = patientBinding; 
         }
 
+
+
         private void patient_button_Click(object sender, EventArgs e)
         {
             if (sender == add_new_patient)
@@ -44,7 +46,19 @@ namespace Valenwu
             }
             else if (sender == edit_patient)
             {
-            
+                // Retrieve the selected Patient object from the DataGridView control
+                Patient selectedPatient = (Patient)dataGridView1.SelectedRows[0].DataBoundItem;
+
+                // Create a new instance of the FormPatientInfo form with the FormPatient object as its parameter
+                FormPatientInfo fp = new FormPatientInfo(this);
+
+                // Set the MdiParent property of the new form and display it
+                fp.MdiParent = this.MdiParent;
+
+                // Set the Patient property of the new form with the selected Patient object
+                fp.SetPatient(selectedPatient);
+
+                fp.Show();
             }
             else if (sender == delete_patient)
             {

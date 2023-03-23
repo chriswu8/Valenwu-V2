@@ -15,51 +15,68 @@ namespace Valenwu
     public partial class FormPatientInfo : Form
     {
         BindingSource patientBinding = new BindingSource();
+        PatientDAO patientDAO = new PatientDAO();
         FormPatient formPatient;
+        Patient patient;
 
-        public FormPatientInfo(FormPatient f)
+        public FormPatientInfo(FormPatient fp)
         {
             InitializeComponent();
-            formPatient = f;
+            formPatient = fp;
+        }
+
+        public void SetPatient(Patient p)
+        {
+            patient = p;
+
+            // Populate the form fields with the selected patient's information
+            LastNameTextbox.Text = patient.LastName;
+            FirstNameTextbox.Text = patient.FirstName;
+            MiddleNameTextbox.Text = patient.MiddleName;
+            AddressTextbox.Text = patient.Address;
+            ProvinceTextbox.Text = patient.Province;
+            CityTextbox.Text = patient.City;
+            PostalCodeTextbox.Text = patient.PostalCode;
+            BirthdayTextbox.Text = patient.BirthDate;
+            PHNTextbox.Text = patient.PHN;
+            PhoneTextbox.Text = patient.Phone;
+            EmailTextbox.Text = patient.Email;
+            OccupationTextbox.Text = patient.Occupation;
+            InsuranceTextbox.Text = patient.Insurance;
+            LastVistTextbox.Text = patient.LastVisit;
+            FirstVisitTextbox.Text = patient.FirstVisit;
+            MiscTextbox.Text = patient.Misc;
         }
 
         private void form_patient_info_save_Click(object sender, EventArgs e)
         {
-            PatientDAO patientDAO = new PatientDAO();
-            
+            // Update the patient object with the values from the form fields
+            patient.LastName = LastNameTextbox.Text;
+            patient.FirstName = FirstNameTextbox.Text;
+            patient.MiddleName = MiddleNameTextbox.Text;
+            patient.Address = AddressTextbox.Text;
+            patient.Province = ProvinceTextbox.Text;
+            patient.City = CityTextbox.Text;
+            patient.PostalCode = PostalCodeTextbox.Text;
+            patient.BirthDate = BirthdayTextbox.Text;
+            patient.PHN = PHNTextbox.Text;
+            patient.Phone = PhoneTextbox.Text;
+            patient.Email = EmailTextbox.Text;
+            patient.Occupation = OccupationTextbox.Text;
+            patient.Insurance = InsuranceTextbox.Text;
+            patient.LastVisit = LastVistTextbox.Text;
+            patient.FirstVisit = FirstVisitTextbox.Text;
+            patient.Misc = MiscTextbox.Text;
 
-            Patient patient = new Patient
-            {
-                LastName = LastNameTextbox.Text,
-                FirstName = FirstNameTextbox.Text,
-                MiddleName = MiddleNameTextbox.Text,
-                Address = AddressTextbox.Text,
-                Province = ProvinceTextbox.Text,
-                City = CityTextbox.Text,
-                PostalCode = PostalCodeTextbox.Text,
-                BirthDate = BirthdayTextbox.Text,
-                PHN = PHNTextbox.Text,
-                Phone = PhoneTextbox.Text,
-                Email = EmailTextbox.Text,
-                Occupation = OccupationTextbox.Text,
-                Insurance = InsuranceTextbox.Text,
-                LastVisit = LastVistTextbox.Text,
-                FirstVisit = FirstVisitTextbox.Text,
-                Misc = MiscTextbox.Text
-            };
+            // Update the patient record in the database
+            int result = patientDAO.updateOnePatient(patient);
+            MessageBox.Show(result + " patient updated!");
 
-            
-            int result = patientDAO.addOnePatient(patient);
-            MessageBox.Show(result + " new patient added!");
-
-            patientBinding.DataSource = patientDAO.getAllPatients();
-
-            // pass the data from the patientDAO into the constructor
-
-            formPatient.DisplayAllPatients(patientDAO);
+            // Refresh the DataGridView control on the FormPatient form
+            formPatient.DisplayAllPatientsOnLoad();
 
             this.Close();
-
         }
     }
+
 }

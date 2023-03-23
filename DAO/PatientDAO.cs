@@ -128,5 +128,47 @@ namespace Valenwu.DAO
             return result;
         }
 
+        public int updateOnePatient(Patient patient)
+        {
+            int result = 0;
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    MySqlCommand command = new MySqlCommand("UPDATE `patient` SET `LAST_NAME` = @lastname, `FIRST_NAME` = @firstname, `MIDDLE_NAME` = @middlename, `ADDRESS` = @address, `PROVINCE` = @province, `CITY` = @city, `POSTAL_CODE` = @postalcode, `BIRTH_DATE` = @birthdate, `PHN` = @phn, `PHONE` = @phone, `EMAIL` = @email, `OCCUPATION` = @occupation, `INSURANCE` = @insurance, `MISC` = @misc, `LAST_VISIT` = @lastvisit, `FIRST_VISIT` = @firstvisit WHERE `ID` = @id", connection);
+
+                    command.Parameters.AddWithValue("@lastname", patient.LastName);
+                    command.Parameters.AddWithValue("@firstname", patient.FirstName);
+                    command.Parameters.AddWithValue("@middlename", patient.MiddleName);
+                    command.Parameters.AddWithValue("@address", patient.Address);
+                    command.Parameters.AddWithValue("@province", patient.Province);
+                    command.Parameters.AddWithValue("@city", patient.City);
+                    command.Parameters.AddWithValue("@postalcode", patient.PostalCode);
+                    command.Parameters.AddWithValue("@birthdate", patient.BirthDate);
+                    command.Parameters.AddWithValue("@phn", patient.PHN);
+                    command.Parameters.AddWithValue("@phone", patient.Phone);
+                    command.Parameters.AddWithValue("@email", patient.Email);
+                    command.Parameters.AddWithValue("@occupation", patient.Occupation);
+                    command.Parameters.AddWithValue("@insurance", patient.Insurance);
+                    command.Parameters.AddWithValue("@misc", patient.Misc);
+                    command.Parameters.AddWithValue("@lastvisit", patient.LastVisit);
+                    command.Parameters.AddWithValue("@firstvisit", patient.FirstVisit);
+                    command.Parameters.AddWithValue("@id", patient.ID);
+
+                    result = command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            return result;
+        }
+
+
     }
 }
