@@ -29,7 +29,7 @@ namespace Valenwu
             var tmrYear = today.Year;
 
 
-            FormPage fp = new FormPage();
+            FormPage fp = new FormPage(tmrDay, tmrMonth, tmrYear);
             fp.MdiParent = this.MdiParent;
             fp.displayAppointments(tmrMonth, tmrDay, tmrYear);
 
@@ -56,7 +56,7 @@ namespace Valenwu
                 tmrDay = 1;
             }
 
-            FormPage fp = new FormPage();
+            FormPage fp = new FormPage(tmrDay, tmrMonth, tmrYear);
             fp.MdiParent = this.MdiParent;
 
             fp.displayAppointments(tmrMonth, tmrDay, tmrYear);
