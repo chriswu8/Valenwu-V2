@@ -62,7 +62,6 @@
             this.FirstNameTextbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.LastNameTextbox = new System.Windows.Forms.TextBox();
-            this.salutation_selector = new System.Windows.Forms.DomainUpDown();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.LeftAddTextbox = new System.Windows.Forms.TextBox();
             this.RightAddTextbox = new System.Windows.Forms.TextBox();
@@ -87,6 +86,7 @@
             this.AdditionalNotesTextbox = new System.Windows.Forms.RichTextBox();
             this.form_patient_info_save = new System.Windows.Forms.Button();
             this.form_patient_info_cancel = new System.Windows.Forms.Button();
+            this.TitlesComboBox = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -108,6 +108,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.TitlesComboBox);
             this.tabPage1.Controls.Add(this.label18);
             this.tabPage1.Controls.Add(this.PHNTextbox);
             this.tabPage1.Controls.Add(this.label12);
@@ -140,7 +141,6 @@
             this.tabPage1.Controls.Add(this.FirstNameTextbox);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.LastNameTextbox);
-            this.tabPage1.Controls.Add(this.salutation_selector);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -421,14 +421,6 @@
             this.LastNameTextbox.TabIndex = 34;
             this.LastNameTextbox.Text = "Chen";
             // 
-            // salutation_selector
-            // 
-            this.salutation_selector.Location = new System.Drawing.Point(32, 34);
-            this.salutation_selector.Name = "salutation_selector";
-            this.salutation_selector.Size = new System.Drawing.Size(87, 27);
-            this.salutation_selector.TabIndex = 33;
-            this.salutation_selector.Text = "Mr.";
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.LeftAddTextbox);
@@ -647,6 +639,14 @@
             this.form_patient_info_cancel.Text = "Cancel";
             this.form_patient_info_cancel.UseVisualStyleBackColor = true;
             // 
+            // TitlesComboBox
+            // 
+            this.TitlesComboBox.FormattingEnabled = true;
+            this.TitlesComboBox.Location = new System.Drawing.Point(28, 36);
+            this.TitlesComboBox.Name = "TitlesComboBox";
+            this.TitlesComboBox.Size = new System.Drawing.Size(89, 28);
+            this.TitlesComboBox.TabIndex = 68;
+            // 
             // FormPatientInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -728,5 +728,6 @@
         private RichTextBox AdditionalNotesTextbox;
         private Label label18;
         private TextBox PHNTextbox;
+        private ComboBox TitlesComboBox;
     }
 }

@@ -18,12 +18,16 @@ namespace Valenwu
         PatientDAO patientDAO = new PatientDAO();
         FormPatient formPatient;
         Patient patient;
+        List<string> titles = new List<string>() { "Mr.", "Mrs.", "Ms.", "Miss", "Dr.", "Prof." };
+
 
         public FormPatientInfo(FormPatient fp)
         {
             InitializeComponent();
             formPatient = fp;
+            TitlesComboBox.Items.AddRange(titles.ToArray());
         }
+
 
         public void SetPatient(Patient p)
         {
@@ -77,6 +81,7 @@ namespace Valenwu
 
             this.Close();
         }
+
     }
 
 }
