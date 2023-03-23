@@ -82,15 +82,18 @@
             this.label16 = new System.Windows.Forms.Label();
             this.RightSphereTextbox = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.AdditionalNotesTextbox = new System.Windows.Forms.RichTextBox();
             this.form_patient_info_save = new System.Windows.Forms.Button();
             this.form_patient_info_cancel = new System.Windows.Forms.Button();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dataGridViewDiary = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDiary)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -599,16 +602,6 @@
             this.tabPage3.Text = "Insurance and History";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 29);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(890, 591);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Diary";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.AdditionalNotesTextbox);
@@ -648,6 +641,27 @@
             this.form_patient_info_cancel.UseVisualStyleBackColor = true;
             this.form_patient_info_cancel.Click += new System.EventHandler(this.form_patient_info_save_Click);
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.dataGridViewDiary);
+            this.tabPage4.Location = new System.Drawing.Point(4, 29);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(890, 591);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Diary";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewDiary
+            // 
+            this.dataGridViewDiary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewDiary.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewDiary.Name = "dataGridViewDiary";
+            this.dataGridViewDiary.RowHeadersWidth = 51;
+            this.dataGridViewDiary.RowTemplate.Height = 29;
+            this.dataGridViewDiary.Size = new System.Drawing.Size(890, 591);
+            this.dataGridViewDiary.TabIndex = 0;
+            // 
             // FormPatientInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -664,6 +678,8 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage5.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDiary)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -724,11 +740,12 @@
         private Label label16;
         private TextBox RightSphereTextbox;
         private TabPage tabPage3;
-        private TabPage tabPage4;
         private TabPage tabPage5;
         private RichTextBox AdditionalNotesTextbox;
         private Label label18;
         private TextBox PHNTextbox;
         private ComboBox TitlesComboBox;
+        private TabPage tabPage4;
+        private DataGridView dataGridViewDiary;
     }
 }

@@ -34,7 +34,6 @@ namespace Valenwu
         }
 
 
-
         private void patient_button_Click(object sender, EventArgs e)
         {
             if (sender != exit_patient_button)

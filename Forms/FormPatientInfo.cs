@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,7 @@ namespace Valenwu
     {
         BindingSource patientBinding = new BindingSource();
         PatientDAO patientDAO = new PatientDAO();
+        AppointmentDAO appointmentDAO = new AppointmentDAO();
         FormPatient formPatient;
         Patient patient;
         List<string> titles = new List<string>() { "Mr.", "Mrs.", "Ms.", "Miss", "Dr.", "Prof." };
@@ -27,6 +29,38 @@ namespace Valenwu
             formPatient = fp;
             TitlesComboBox.Items.AddRange(titles.ToArray());
         }
+
+        public FormPatientInfo(JObject obj)
+        {
+            InitializeComponent();
+            TitlesComboBox.Items.AddRange(titles.ToArray());
+
+            // selected Patient from FormPage
+            Patient thePatient = patientDAO.getOnePatient(Int32.Parse(obj["patient_ID"].ToString()));
+
+            LastNameTextbox.Text = thePatient.LastName;
+            FirstNameTextbox.Text = thePatient.FirstName;
+            MiddleNameTextbox.Text = thePatient.MiddleName;
+            AddressTextbox.Text = thePatient.Address;
+            ProvinceTextbox.Text = thePatient.Province;
+            CityTextbox.Text = thePatient.City;
+            PostalCodeTextbox.Text = thePatient.PostalCode;
+            BirthdayTextbox.Text = thePatient.BirthDate;
+            PHNTextbox.Text = thePatient.PHN;
+            PhoneTextbox.Text = thePatient.Phone;
+            EmailTextbox.Text = thePatient.Email;
+            OccupationTextbox.Text = thePatient.Occupation;
+            InsuranceTextbox.Text = thePatient.Insurance;
+            LastVistTextbox.Text = thePatient.LastVisit;
+            FirstVisitTextbox.Text = thePatient.FirstVisit;
+            MiscTextbox.Text = thePatient.Misc;
+
+            patientBinding.DataSource = appointmentDAO.getAppointmentFromPatientID(Int32.Parse(obj["ID"].ToString()));
+
+            dataGridViewDiary.DataSource = patientBinding;
+
+        }
+
 
 
         public void SetPatient(Patient p)

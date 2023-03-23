@@ -171,6 +171,57 @@ namespace Valenwu.DAO
             return result;
         }
 
+        public Patient getOnePatient(int patientID)
+        {
+            Patient patient = new Patient();
 
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Define the SQL query (@id is the user-selected appointment-directed patient's id)
+                    MySqlCommand command = new MySqlCommand("SELECT * FROM `patient` WHERE patient.ID = @id;", connection);
+
+                    // assign variable id to patientID
+                    command.Parameters.AddWithValue("@id", patientID);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            patient = new Patient
+                            {
+                                ID = reader.GetInt32(0),
+                                LastName = reader.GetString(1),
+                                FirstName = reader.GetString(2),
+                                MiddleName = reader.GetString(3),
+                                Address = reader.GetString(4),
+                                Province = reader.GetString(5),
+                                City = reader.GetString(6),
+                                PostalCode = reader.GetString(7),
+                                BirthDate = reader.GetString(8),
+                                PHN = reader.GetString(9),
+                                Phone = reader.GetString(10),
+                                Email = reader.GetString(11),
+                                Occupation = reader.GetString(12),
+                                Insurance = reader.GetString(13),
+                                Misc = reader.GetString(14),
+                                LastVisit = reader.GetString(15),
+                                FirstVisit = reader.GetString(16)
+                            };
+                        }
+                    }
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            return patient;
+        }
     }
 }
