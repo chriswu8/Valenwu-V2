@@ -75,6 +75,8 @@ namespace Valenwu
                 Misc = MiscTextbox.Text
             };
 
+            // merge to main
+
             // Update the patient record in the database
             int result = patientDAO.addOnePatient( patient );
             MessageBox.Show(result + " patient updated!");
