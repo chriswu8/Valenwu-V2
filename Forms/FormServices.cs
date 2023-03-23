@@ -35,42 +35,56 @@ namespace Valenwu
             dataGridViewServices.DataSource = serviceBinding;
         }
 
-
-        private void addService_Click(object sender, EventArgs e)
+        private void service_button_Click(object sender, EventArgs e)
         {
-            FormServiceInfo fp = new FormServiceInfo(this);
-            fp.MdiParent = this.MdiParent;
-            fp.Show();
-            DisplayAllServicesOnLoad();
-        }
-
-
-        private void deleteService_Click(object sender, EventArgs e)
-        {
-            if (dataGridViewServices.SelectedRows.Count > 0)
+            if (sender == addNewServiceButton)
             {
-                DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this service?", "Confirmation", MessageBoxButtons.YesNo);
-
-                if (dialogResult == DialogResult.Yes)
+                FormServiceInfo fp = new FormServiceInfo(this);
+                fp.MdiParent = this.MdiParent;
+                fp.Show();
+                DisplayAllServicesOnLoad();
+            }
+            else if (sender == DeleteServiceButton)
+            {
+                if (dataGridViewServices.SelectedRows.Count > 0)
                 {
-                    Service service = (Service)dataGridViewServices.SelectedRows[0].DataBoundItem;
-                    int result = serviceDAO.deleteOneService(service);
+                    DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this service?", "Confirmation", MessageBoxButtons.YesNo);
 
-                    if (result > 0)
+                    if (dialogResult == DialogResult.Yes)
                     {
-                        MessageBox.Show("Service deleted successfully.");
-                        DisplayAllServices(serviceDAO);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Unable to delete service.");
+                        Service service = (Service)dataGridViewServices.SelectedRows[0].DataBoundItem;
+                        int result = serviceDAO.deleteOneService(service);
+
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Service deleted successfully.");
+                            DisplayAllServices(serviceDAO);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Unable to delete service.");
+                        }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Please select a row to delete.");
+                }
             }
-            else
+            else if (sender == EditServiceButton)
             {
-                MessageBox.Show("Please select a row to delete.");
+                if (dataGridViewServices.SelectedRows.Count > 0)
+                {
+                    Service service = (Service)dataGridViewServices.SelectedRows[0].DataBoundItem;
+                    FormServiceInfo formServiceInfo = new FormServiceInfo(this, service);
+                    formServiceInfo.ShowDialog();
+                }
             }
+            else if (sender == ExitServiceButton)
+            {
+                this.Close();
+            }
+
         }
 
 
@@ -83,16 +97,5 @@ namespace Valenwu
                 formServiceInfo.ShowDialog();
             }
         }
-
-        private void editService_Click(object sender, EventArgs e)
-        {
-            if (dataGridViewServices.SelectedRows.Count > 0)
-            {
-                Service service = (Service)dataGridViewServices.SelectedRows[0].DataBoundItem;
-                FormServiceInfo formServiceInfo = new FormServiceInfo(this, service);
-                formServiceInfo.ShowDialog();
-            }
-        }
-
     }
 }

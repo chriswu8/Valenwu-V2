@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.addNewServiceButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.Update = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.DeleteServiceButton = new System.Windows.Forms.Button();
+            this.EditServiceButton = new System.Windows.Forms.Button();
+            this.ExitServiceButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,36 +47,37 @@
             this.addNewServiceButton.TabIndex = 1;
             this.addNewServiceButton.Text = "Add new service";
             this.addNewServiceButton.UseVisualStyleBackColor = true;
-            this.addNewServiceButton.Click += new System.EventHandler(this.addService_Click);
+            this.addNewServiceButton.Click += new System.EventHandler(this.service_button_Click);
             // 
-            // button2
+            // DeleteServiceButton
             // 
-            this.button2.Location = new System.Drawing.Point(439, 74);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(170, 35);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Delete existing service";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.deleteService_Click);
+            this.DeleteServiceButton.Location = new System.Drawing.Point(439, 74);
+            this.DeleteServiceButton.Name = "DeleteServiceButton";
+            this.DeleteServiceButton.Size = new System.Drawing.Size(170, 35);
+            this.DeleteServiceButton.TabIndex = 2;
+            this.DeleteServiceButton.Text = "Delete existing service";
+            this.DeleteServiceButton.UseVisualStyleBackColor = true;
+            this.DeleteServiceButton.Click += new System.EventHandler(this.service_button_Click);
             // 
-            // Update
+            // EditServiceButton
             // 
-            this.Update.Location = new System.Drawing.Point(439, 115);
-            this.Update.Name = "Update";
-            this.Update.Size = new System.Drawing.Size(170, 35);
-            this.Update.TabIndex = 3;
-            this.Update.Text = "Edit existing service";
-            this.Update.UseVisualStyleBackColor = true;
-            this.Update.Click += new System.EventHandler(this.editService_Click);
+            this.EditServiceButton.Location = new System.Drawing.Point(439, 115);
+            this.EditServiceButton.Name = "EditServiceButton";
+            this.EditServiceButton.Size = new System.Drawing.Size(170, 35);
+            this.EditServiceButton.TabIndex = 3;
+            this.EditServiceButton.Text = "Edit existing service";
+            this.EditServiceButton.UseVisualStyleBackColor = true;
+            this.EditServiceButton.Click += new System.EventHandler(this.service_button_Click);
             // 
-            // button4
+            // ExitServiceButton
             // 
-            this.button4.Location = new System.Drawing.Point(439, 403);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(170, 35);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Exit";
-            this.button4.UseVisualStyleBackColor = true;
+            this.ExitServiceButton.Location = new System.Drawing.Point(439, 403);
+            this.ExitServiceButton.Name = "ExitServiceButton";
+            this.ExitServiceButton.Size = new System.Drawing.Size(170, 35);
+            this.ExitServiceButton.TabIndex = 4;
+            this.ExitServiceButton.Text = "Exit";
+            this.ExitServiceButton.UseVisualStyleBackColor = true;
+            this.ExitServiceButton.Click += new System.EventHandler(this.service_button_Click);
             // 
             // label1
             // 
@@ -125,9 +126,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.Update);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.ExitServiceButton);
+            this.Controls.Add(this.EditServiceButton);
+            this.Controls.Add(this.DeleteServiceButton);
             this.Controls.Add(this.addNewServiceButton);
             this.Name = "FormServices";
             this.Text = "FormServices";
@@ -139,9 +140,9 @@
 
         #endregion
         private Button addNewServiceButton;
-        private Button button2;
-        private Button Update;
-        private Button button4;
+        private Button DeleteServiceButton;
+        private Button EditServiceButton;
+        private Button ExitServiceButton;
         private Label label1;
         private Label label2;
         private Label label3;
