@@ -37,12 +37,14 @@ namespace Valenwu
 
         private void service_button_Click(object sender, EventArgs e)
         {
-            if (dataGridViewServices.SelectedRows.Count == 0)
+            if (sender != ExitServiceButton)
             {
-                MessageBox.Show("You have selected a cell. Please select a row (service).");
-                return;
+                if (dataGridViewServices.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("You have selected a cell. Please select a row (service).");
+                    return;
+                }
             }
-
             if (sender == addNewServiceButton)
             {
                 FormServiceInfo fp = new FormServiceInfo(this);
