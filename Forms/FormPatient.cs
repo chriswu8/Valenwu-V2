@@ -91,8 +91,14 @@ namespace Valenwu
                 fp.MdiParent = this.MdiParent;
                 fp.Show();
             }
-            else if (sender == schedule_patient)
+            else if (sender ==  schedule_patient)
             {
+                if (dataGridView1.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("You have selected a cell. Please select a row (patient) before scheduling.");
+                    return;
+                }
+
                 Patient selectedPatient = (Patient)dataGridView1.SelectedRows[0].DataBoundItem;
 
                 FormConfirmAppointment fp = new FormConfirmAppointment(selectedPatient);
