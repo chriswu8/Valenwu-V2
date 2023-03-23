@@ -30,7 +30,7 @@
         {
             this.add_new_patient = new System.Windows.Forms.Button();
             this.exit_patient_button = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.SearchBox = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -55,7 +55,7 @@
             this.add_new_patient.TabIndex = 0;
             this.add_new_patient.Text = "Add New Patient";
             this.add_new_patient.UseVisualStyleBackColor = true;
-            this.add_new_patient.Click += new System.EventHandler(this.add_new_patient_Click);
+            this.add_new_patient.Click += new System.EventHandler(this.patient_button_Click);
             // 
             // exit_patient_button
             // 
@@ -65,13 +65,14 @@
             this.exit_patient_button.TabIndex = 1;
             this.exit_patient_button.Text = "Exit";
             this.exit_patient_button.UseVisualStyleBackColor = true;
+            this.exit_patient_button.Click += new System.EventHandler(this.patient_button_Click);
             // 
-            // textBox1
+            // SearchBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(415, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(421, 27);
-            this.textBox1.TabIndex = 2;
+            this.SearchBox.Location = new System.Drawing.Point(415, 26);
+            this.SearchBox.Name = "SearchBox";
+            this.SearchBox.Size = new System.Drawing.Size(421, 27);
+            this.SearchBox.TabIndex = 2;
             // 
             // button3
             // 
@@ -153,7 +154,7 @@
             this.view_invoice.TabIndex = 0;
             this.view_invoice.Text = "View Invoice";
             this.view_invoice.UseVisualStyleBackColor = true;
-            this.view_invoice.Click += new System.EventHandler(this.take_payment_Click);
+            this.view_invoice.Click += new System.EventHandler(this.patient_button_Click);
             // 
             // dataGridView1
             // 
@@ -173,7 +174,7 @@
             this.schedule_patient.TabIndex = 14;
             this.schedule_patient.Text = "Schedule Patient";
             this.schedule_patient.UseVisualStyleBackColor = true;
-            this.schedule_patient.Click += new System.EventHandler(this.schedule_patient_Click);
+            this.schedule_patient.Click += new System.EventHandler(this.patient_button_Click);
             // 
             // delete_patient
             // 
@@ -183,6 +184,7 @@
             this.delete_patient.TabIndex = 16;
             this.delete_patient.Text = "Delete";
             this.delete_patient.UseVisualStyleBackColor = true;
+            this.delete_patient.Click += new System.EventHandler(this.patient_button_Click);
             // 
             // edit_patient
             // 
@@ -192,6 +194,7 @@
             this.edit_patient.TabIndex = 17;
             this.edit_patient.Text = "Edit";
             this.edit_patient.UseVisualStyleBackColor = true;
+            this.edit_patient.Click += new System.EventHandler(this.patient_button_Click);
             // 
             // FormPatient
             // 
@@ -211,7 +214,7 @@
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.SearchBox);
             this.Controls.Add(this.exit_patient_button);
             this.Controls.Add(this.add_new_patient);
             this.IsMdiContainer = true;
@@ -241,5 +244,6 @@
         private Button schedule_patient;
         private Button delete_patient;
         private Button edit_patient;
+        private TextBox SearchBox;
     }
 }

@@ -33,39 +33,62 @@ namespace Valenwu
             dataGridView1.DataSource = patientBinding; 
         }
 
-        private void add_new_patient_Click(object sender, EventArgs e)
+        private void patient_button_Click(object sender, EventArgs e)
         {
-            FormPatientInfo fp = new FormPatientInfo(this);
-            fp.MdiParent = this.MdiParent;
-            fp.Show();
-            DisplayAllPatientsOnLoad();
-        }
+            if (sender == add_new_patient)
+            {
+                FormPatientInfo fp = new FormPatientInfo(this);
+                fp.MdiParent = this.MdiParent;
+                fp.Show();
+                DisplayAllPatientsOnLoad();
+            }
+            else if (sender == edit_patient)
+            {
+            
+            }
+            else if (sender == delete_patient)
+            {
+                // Retrieve the selected Patient object from the DataGridView control
+                Patient selectedPatient = (Patient)dataGridView1.SelectedRows[0].DataBoundItem;
 
-        private void take_payment_Click(object sender, EventArgs e)
-        {
-            Patient selectedPatient = (Patient)dataGridView1.SelectedRows[0].DataBoundItem;
-            FormInvoice fp = new FormInvoice(this, selectedPatient);
-            fp.MdiParent = this.MdiParent;
-            fp.Show();
-        }
+                // Prompt the user to confirm the deletion
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this patient?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-        private void schedule_patient_Click(object sender, EventArgs e)
-        {
-            /*FormConfirmAppointment fp = new FormConfirmAppointment();
-            fp.MdiParent = this.MdiParent;
-            fp.Show();*/
+                // If the user confirms the deletion, delete the patient record from the database
+                if (result == DialogResult.Yes)
+                {
+                    int rowsAffected = patientDAO.deleteOnePatient(selectedPatient);
 
-            // select patient from data grid view
-            // pass to cofirm appt form
-            // 
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Patient deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DisplayAllPatientsOnLoad();
+                    }
+                    else
+                    {
+                        MessageBox.Show("This patient currently has an appointment or outstanding invoice.\nCannot delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else if (sender == view_invoice)
+            {
+                Patient selectedPatient = (Patient)dataGridView1.SelectedRows[0].DataBoundItem;
+                FormInvoice fp = new FormInvoice(this, selectedPatient);
+                fp.MdiParent = this.MdiParent;
+                fp.Show();
+            }
+            else if (sender == schedule_patient)
+            {
+                Patient selectedPatient = (Patient)dataGridView1.SelectedRows[0].DataBoundItem;
 
-            // grabs all patient info of selected patient in data grid view
-            Patient selectedPatient = (Patient)dataGridView1.SelectedRows[0].DataBoundItem;
-
-            FormConfirmAppointment fp = new FormConfirmAppointment(selectedPatient);
-            fp.MdiParent = this.MdiParent;
-            fp.Show();
-
+                FormConfirmAppointment fp = new FormConfirmAppointment(selectedPatient);
+                fp.MdiParent = this.MdiParent;
+                fp.Show();
+            }
+            else if (sender == exit_patient_button)
+            {
+                this.Close();
+            }
         }
     }
 }

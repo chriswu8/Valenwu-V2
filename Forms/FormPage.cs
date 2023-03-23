@@ -82,7 +82,7 @@ namespace Valenwu
             }
             else if (sender == exit_page_button)
             {
-                // TODO
+                this.Close();
             }
         }
 

@@ -105,6 +105,30 @@ namespace Valenwu.DAO
             return result;
         }
 
-        
+        public int deleteOnePatient(Patient patient)
+        {
+            int result = 0;
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    MySqlCommand command = new MySqlCommand("DELETE FROM `patient` WHERE `ID` = @id", connection);
+
+                    command.Parameters.AddWithValue("@id", patient.ID);
+
+                    result = command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            return result;
+        }
+
     }
 }
