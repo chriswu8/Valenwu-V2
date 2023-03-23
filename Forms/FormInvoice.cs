@@ -60,6 +60,15 @@ namespace Valenwu
 
         private void invoice_button_Click(object sender, EventArgs e)
         {
+            if (sender != ExitInvoiceButton)
+            {
+                if (formInvoice_dataGridView.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("You have selected a cell. Please select a row (invoice).");
+                    return;
+                }
+            }
+
             if (sender == NewInvoiceButton)
             {
                 // TODO

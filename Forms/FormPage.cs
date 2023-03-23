@@ -62,10 +62,10 @@ namespace Valenwu
             }
             else if (sender == delete_appointment_button)
             {
-                JObject test = (JObject)dataGridView1.SelectedRows[0].DataBoundItem;
+                JObject appointment = (JObject)dataGridView1.SelectedRows[0].DataBoundItem;
 
-                var deleteSuccessful = appointmentDAO.deleteOneAppointment(Int32.Parse(test["ID"].ToString()));
-                var invoiceDelete = invoiceDAO.deleteInvoiceFromAppointment(Int32.Parse(test["invoice_ID"].ToString()));
+                var deleteSuccessful = appointmentDAO.deleteOneAppointment(Int32.Parse(appointment["ID"].ToString()));
+                var invoiceDelete = invoiceDAO.deleteInvoiceFromAppointment(Int32.Parse(appointment["invoice_ID"].ToString()));
 
                 if (deleteSuccessful >= 1 && invoiceDelete >= 1)
                 {
