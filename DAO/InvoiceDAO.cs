@@ -19,7 +19,6 @@ namespace Valenwu.DAO
             int testid = 0;
 
             
-
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -59,7 +58,7 @@ namespace Valenwu.DAO
                     connection.Open();
 
                     // Define the SQL query
-                    MySqlCommand command = new MySqlCommand("SELECT invoice.ID, patient.FIRST_NAME, patient.LAST_NAME, service.CODE, invoice.FEE FROM `invoice` inner join service on service.ID = invoice.service_ID inner join patient on patient.ID = invoice.patient_ID where invoice.patient_ID = @patientID", connection);
+                    MySqlCommand command = new MySqlCommand("SELECT invoice.ID, patient.FIRST_NAME, patient.LAST_NAME, service.CODE, invoice.FEE FROM `invoice` inner join service on service.ID = invoice.service_ID inner join patient on patient.ID = invoice.patient_ID where invoice.patient_ID = @patientID AND invoice.FEE > 0", connection);
 
                     command.Parameters.AddWithValue("@patientID", patientID);
 
@@ -100,6 +99,8 @@ namespace Valenwu.DAO
             return returnInvoices;
         }
 
+        
+
         internal int deleteInvoiceFromAppointment(int invoiceID)
         {
             int result = 0;
@@ -119,6 +120,34 @@ namespace Valenwu.DAO
                     MySqlCommand command = new MySqlCommand("DELETE FROM `invoice` WHERE ID = @id", connection);
 
                     command.Parameters.AddWithValue("@id", invoiceID);
+
+                    result = command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            return result;
+        }
+
+        public int updateInvoice(JObject invoice)
+        {
+            int result = 0;
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    MySqlCommand command = new MySqlCommand("UPDATE `invoice` SET `FEE`= @fee WHERE `ID` = @id", connection);
+
+                    
+                    command.Parameters.AddWithValue("@fee", 0);
+                    command.Parameters.AddWithValue("@id", invoice["ID"]);
+                    
 
                     result = command.ExecuteNonQuery();
                 }

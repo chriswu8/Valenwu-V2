@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.formPayment_save = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -42,7 +42,7 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.primary_payment_type = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -51,7 +51,7 @@
             this.items_services_label = new System.Windows.Forms.Label();
             this.hst_gst_label = new System.Windows.Forms.Label();
             this.pst_label = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.total_payment = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -63,14 +63,15 @@
             this.button1.Text = "Exit";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // formPayment_save
             // 
-            this.button2.Location = new System.Drawing.Point(421, 341);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(185, 58);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Save";
-            this.button2.UseVisualStyleBackColor = true;
+            this.formPayment_save.Location = new System.Drawing.Point(421, 341);
+            this.formPayment_save.Name = "formPayment_save";
+            this.formPayment_save.Size = new System.Drawing.Size(185, 58);
+            this.formPayment_save.TabIndex = 1;
+            this.formPayment_save.Text = "Save";
+            this.formPayment_save.UseVisualStyleBackColor = true;
+            this.formPayment_save.Click += new System.EventHandler(this.formPayment_save_Click);
             // 
             // richTextBox1
             // 
@@ -112,7 +113,6 @@
             this.label2.Size = new System.Drawing.Size(96, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "Date Wanted";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBox3
             // 
@@ -171,14 +171,14 @@
             this.textBox6.Text = "0.00";
             this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox7
+            // primary_payment_type
             // 
-            this.textBox7.Location = new System.Drawing.Point(281, 332);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(111, 27);
-            this.textBox7.TabIndex = 13;
-            this.textBox7.Text = "0.00";
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.primary_payment_type.Location = new System.Drawing.Point(281, 332);
+            this.primary_payment_type.Name = "primary_payment_type";
+            this.primary_payment_type.Size = new System.Drawing.Size(111, 27);
+            this.primary_payment_type.TabIndex = 13;
+            this.primary_payment_type.Text = "0.00";
+            this.primary_payment_type.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label6
             // 
@@ -272,24 +272,24 @@
             this.pst_label.Text = "$0.00";
             this.pst_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label14
+            // total_payment
             // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label14.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label14.Location = new System.Drawing.Point(651, 263);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(44, 20);
-            this.label14.TabIndex = 23;
-            this.label14.Text = "$0.00";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.total_payment.AutoSize = true;
+            this.total_payment.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.total_payment.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.total_payment.Location = new System.Drawing.Point(651, 263);
+            this.total_payment.Name = "total_payment";
+            this.total_payment.Size = new System.Drawing.Size(44, 20);
+            this.total_payment.TabIndex = 23;
+            this.total_payment.Text = "$0.00";
+            this.total_payment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // FormPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(746, 416);
-            this.Controls.Add(this.label14);
+            this.Controls.Add(this.total_payment);
             this.Controls.Add(this.pst_label);
             this.Controls.Add(this.hst_gst_label);
             this.Controls.Add(this.items_services_label);
@@ -299,7 +299,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.primary_payment_type);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox4);
@@ -311,7 +311,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.formPayment_save);
             this.Controls.Add(this.button1);
             this.Name = "FormPayment";
             this.Text = "FormPayment";
@@ -323,7 +323,7 @@
         #endregion
 
         private Button button1;
-        private Button button2;
+        private Button formPayment_save;
         private RichTextBox richTextBox1;
         private Label label1;
         private TextBox textBox1;
@@ -336,7 +336,7 @@
         private TextBox textBox5;
         private Label label5;
         private TextBox textBox6;
-        private TextBox textBox7;
+        private TextBox primary_payment_type;
         private Label label6;
         private Label label7;
         private Label label8;
@@ -345,7 +345,7 @@
         private Label label11;
         private Label label12;
         private Label label13;
-        private Label label14;
+        private Label total_payment;
         private Label items_services_label;
         private Label hst_gst_label;
         private Label pst_label;

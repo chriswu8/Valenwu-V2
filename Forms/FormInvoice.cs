@@ -46,6 +46,12 @@ namespace Valenwu
             formInvoice_richTextBox1.Text = totalAmount.ToString();
         }
 
+        public void displayAllInvoicesFromPatientOnLoad()
+        {
+            invoiceBinding.DataSource = invoiceDAO.getAllInvoicesFromPatient(parentPatient.ID);
+            formInvoice_dataGridView.DataSource = invoiceBinding;
+        }
+
         private void displayAllInvoicesFromPatient(int patientID)
         {
             invoiceBinding.DataSource = invoiceDAO.getAllInvoicesFromPatient(patientID);
@@ -62,6 +68,9 @@ namespace Valenwu
             {
                 // TODO
                 JObject selectedPatient = (JObject)formInvoice_dataGridView.SelectedRows[0].DataBoundItem;
+                FormPayment fp = new FormPayment(this, selectedPatient);
+                fp.MdiParent = this.MdiParent;
+                fp.Show();
 
                 // merge to main
                 // merge
