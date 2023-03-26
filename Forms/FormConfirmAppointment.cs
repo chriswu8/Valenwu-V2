@@ -17,6 +17,7 @@ namespace Valenwu
 {
     public partial class FormConfirmAppointment : Form
     {
+        // Declare / initializes required business and query-related objects
         Patient patient;
         ServiceDAO serviceDAO = new ServiceDAO();
         AppointmentDAO appointmentDAO = new AppointmentDAO();
@@ -24,6 +25,10 @@ namespace Valenwu
         List<Service> services;
         Boolean flag = false;
 
+        /// <summary>
+        /// This constructor initializes the FormConfirmAppointment with a Patient object, sets up the format and show-up-down properties of a DateTimePicker, and populates a dropdown menu with service codes obtained from a database query.
+        /// </summary>
+        /// <param name="p"></param>
         public FormConfirmAppointment(Patient p)
         {
             InitializeComponent();
@@ -33,48 +38,62 @@ namespace Valenwu
 
             services = serviceDAO.getAllServices();
 
-            // populates services from the service table to the Exam dropdown
+            // Populates services from the service table to the Exam dropdown
             foreach (Service service in services)
             {
-                // adding each service code to Exam dropdown
+                // Adding each service code to Exam dropdown
                 formConfirmAppointment_exam_drop_down.Items.Add(service.Code);
             }
         }
 
+        /// <summary>
+        /// This constructor initializes the FormConfirmAppointment form for changing an existing appointment by setting the flag to true, setting the time picker format and populating the Exam dropdown with the available services.
+        /// </summary>
+        /// <param name="obj"></param>
         public FormConfirmAppointment(JObject obj)
         {
             InitializeComponent();
 
-            // true means change appt
+            // True means change appt
             flag = true;
 
+            // Sets the format of the formConfirmAppt_time control to display ONLY the time (hours and minutes), and not the date
             formConfirmAppt_time.Format = DateTimePickerFormat.Time;
-            formConfirmAppt_time.ShowUpDown = true;
-            
 
+            // Allows the user to select the time using up and down arrows
+            formConfirmAppt_time.ShowUpDown = true;
+
+            // Retrieves a list of ALL available services from the database using the ServiceDAO object's getAllServices method and stores it in the services variable
             services = serviceDAO.getAllServices();
 
-            // populates services from the service table to the Exam dropdown
+            // Populates services from the service table to the Exam dropdown
             foreach (Service service in services)
             {
-                // adding each service code to Exam dropdown
+                // Adding each service code to Exam dropdown
                 formConfirmAppointment_exam_drop_down.Items.Add(service.Code);
             }
         }
 
+        /// <summary>
+        /// Saves the appointment details to the database and generates an invoice. If the flag is true, it updates the existing appointment details in the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void formConfirmAppt_save_Click(object sender, EventArgs e)
         {
             if (flag == false)
             {
                 if (sender == formConfirmAppt_save)
                 {
+                    //  checks whether no exam code or service type is selected in the drop-down list
                     if (formConfirmAppointment_exam_drop_down.SelectedItem == null)
                     {
+                        // displays a message box prompting the user to select pre-defined service type
                         MessageBox.Show("Please select an exam code / service type.");
                         return;
                     }
 
-                    // get service id from the corresponding exam
+                    // Get service id from the corresponding exam
                     Service individualService = serviceDAO.getOneService(formConfirmAppointment_exam_drop_down.SelectedItem.ToString());
 
                     // Generate invoice based on acquired service
@@ -86,11 +105,11 @@ namespace Valenwu
                         totalPaid = 0
                     };
 
-                    // write to invoice table
+                    // Write to invoice table
                     var invoiceID = invoiceDAO.addOneInvoice(invoice);
 
 
-                    // generating appointment
+                    // Generating appointment
                     Appointment appointment = new Appointment
                     {
                         Month = formConfirmAppt_date.Value.Month.ToString(),
@@ -106,7 +125,7 @@ namespace Valenwu
                     // sql statement that inserts appointment into appointment table
                     int result = appointmentDAO.addAppointmentByPatient(appointment);
 
-
+                    // Confirmation message for when an appointment is successfully generated
                     MessageBox.Show(result + " new appointment added!");
                 }
             }
@@ -138,16 +157,23 @@ namespace Valenwu
             this.Close();
         }
 
-
+        /// <summary>
+        /// Listens for the Exam dropdown selection to be changed, then it looks up the selected service's fee and populates the fee textbox.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void formConfirmAppointment_exam_drop_down_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            // Get the selected item from the exam dropdown
             Object selectedItem = formConfirmAppointment_exam_drop_down.SelectedItem;
 
+            // Loop through all the services
             foreach (Service service in services)
             {
+                // If the exam / service code matches the selected item...
                 if (service.Code.Equals(selectedItem.ToString()))
                 {
+                    // Display the service fee in the FeeTextbox
                     FeeTextbox.Text = service.Fee.ToString();
                 }
             }
