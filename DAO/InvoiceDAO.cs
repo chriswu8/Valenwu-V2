@@ -88,14 +88,6 @@ namespace Valenwu.DAO
                     {
                         while (reader.Read())
                         {
-                            /*Service s = new Service
-                            {
-                                Id = reader.GetInt32(0),
-                                Code = reader.GetString(1),
-                                Fee = reader.GetInt32(2),
-                                Description = reader.GetString(3)
-
-                            };*/
 
                             JObject newInvoice = new JObject();
 
@@ -121,16 +113,15 @@ namespace Valenwu.DAO
         }
 
         
-
+        /// <summary>
+        /// Method to delete an invoice when an appointment is deleted.
+        /// </summary>
+        /// <param name="invoiceID"></param>
+        /// <returns></returns>
         internal int deleteInvoiceFromAppointment(int invoiceID)
         {
+            // Variable to hold the number of invoices that were deleted
             int result = 0;
-
-            // TIME, FIRST_NAME, LAST_NAME, "EXAM", "PHONE", "EMAIL"
-            /*string firstName = patientDetails["FIRST_NAME"].ToString();
-            string lastName = patientDetails["LAST_NAME"].ToString();
-            string phone = patientDetails["PHONE"].ToString();
-            string email = patientDetails["EMAIL"].ToString();*/
 
             try
             {
@@ -153,8 +144,15 @@ namespace Valenwu.DAO
             return result;
         }
 
+        /// <summary>
+        /// Update an invoice with a new payment amount.
+        /// </summary>
+        /// <param name="invoice"></param>
+        /// <param name="totalPayment"></param>
+        /// <returns></returns>
         public int updateInvoice(JObject invoice, double totalPayment)
         {
+            // Variable to hold number of invoices that were updated.
             int result = 0;
 
             try

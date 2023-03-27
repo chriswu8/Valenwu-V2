@@ -8,11 +8,20 @@ using Valenwu.Entities;
 
 namespace Valenwu.DAO
 {
+    /// <summary>
+    /// Separates queries / Service-related operations from business logic
+    /// </summary>
     public class ServiceDAO
     {
         string connectionString = "datasource=localhost;port=3306;username=root;password=root;database=valenwu_db";
+
+        /// <summary>
+        /// Returns a list of all services stored in the Service table.
+        /// </summary>
+        /// <returns></returns>
         public List<Service> getAllServices()
         {
+            // Initialize a list of Services to be returned.
             List<Service> returnServices = new List<Service>();
 
             try
@@ -50,8 +59,14 @@ namespace Valenwu.DAO
             return returnServices;
         }
 
+        /// <summary>
+        /// Get one service from the Service table by its service code.
+        /// </summary>
+        /// <param name="serviceCode"></param>
+        /// <returns></returns>
         public Service getOneService(string serviceCode)
         {
+            // Initialize a service to be returned.
             Service service = new Service();
 
             try
@@ -69,6 +84,7 @@ namespace Valenwu.DAO
                     {
                         while (reader.Read())
                         {
+                            // Create temporary service object and fill in parameters from service from Service table
                             Service s = new Service
                             {
                                 Id = reader.GetInt32(0),
@@ -91,9 +107,14 @@ namespace Valenwu.DAO
             return service;
         }
 
-
+        /// <summary>
+        /// Add one service to the service table.
+        /// </summary>
+        /// <param name="service"></param>
+        /// <returns></returns>
         internal int addOneService(Service service)
         {
+            // Variable to return number of new rows that were added.
             int result = 0;
 
             try
@@ -123,9 +144,14 @@ namespace Valenwu.DAO
             return result;
         }
 
-
+        /// <summary>
+        /// Delete one service by its ID.
+        /// </summary>
+        /// <param name="service"></param>
+        /// <returns></returns>
         internal int deleteOneService(Service service)
         {
+            // Variable to display number of columns that were modified.
             int result = 0;
 
             try
@@ -134,6 +160,7 @@ namespace Valenwu.DAO
                 {
                     connection.Open();
 
+                    // Define SQL Query
                     MySqlCommand command = new MySqlCommand("DELETE FROM `service` WHERE `ID` = @id", connection);
 
                     command.Parameters.AddWithValue("@id", service.Id);

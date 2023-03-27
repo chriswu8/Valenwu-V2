@@ -277,15 +277,15 @@ namespace Valenwu.DAO
             return result;
         }
 
+        /// <summary>
+        /// Delete an appointment by its ID
+        /// </summary>
+        /// <param name="appointmentID"></param>
+        /// <returns></returns>
         internal int deleteOneAppointment(int appointmentID)
         {
+            // variable to store number of deleted rows
             int result = 0;
-
-            // TIME, FIRST_NAME, LAST_NAME, "EXAM", "PHONE", "EMAIL"
-            /*string firstName = patientDetails["FIRST_NAME"].ToString();
-            string lastName = patientDetails["LAST_NAME"].ToString();
-            string phone = patientDetails["PHONE"].ToString();
-            string email = patientDetails["EMAIL"].ToString();*/
 
             try
             {
@@ -294,6 +294,7 @@ namespace Valenwu.DAO
                     // opens the connection
                     connection.Open();
 
+                    // Define SQL query
                     MySqlCommand command = new MySqlCommand("DELETE FROM `appointment` WHERE ID = @id", connection);
 
                     command.Parameters.AddWithValue("@id", appointmentID);
@@ -309,8 +310,14 @@ namespace Valenwu.DAO
             return result;
         }
         
+        /// <summary>
+        /// Update an appointment.
+        /// </summary>
+        /// <param name="appointment"></param>
+        /// <returns></returns>
         internal int updateOneAppointment(Appointment appointment)
         {
+            // variable to store number of updated rows
             int result = 0;
 
             try
