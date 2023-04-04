@@ -88,7 +88,11 @@ namespace Valenwu
             formInvoice_dataGridView.DataSource = invoiceBinding;
         }
 
-
+        /// <summary>
+        /// This method handles all form actions relating to invoices.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void invoice_button_Click(object sender, EventArgs e)
         {
             // Ensures that the Exit button functions regardless of whether a row or cell is selected

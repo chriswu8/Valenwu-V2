@@ -8,6 +8,10 @@ namespace Valenwu.Entities
 {
     internal class Appointment
     {
+        /// <summary>
+        /// An appointment entity with it's corresponding attributes.
+        /// This class is used to construct an Appointment object to be used in the database.
+        /// </summary>
         public int ID { get; set; }
         public string? Month { get; set; }
         public string? Day { get; set; }

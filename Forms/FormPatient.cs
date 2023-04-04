@@ -12,34 +12,57 @@ using Valenwu.Entities;
 
 namespace Valenwu
 {
+    /// <summary>
+    /// The FormPatient class contains methods for retrieving and performing CRUD operations on a Patient. 
+    /// </summary>
     public partial class FormPatient : Form
     {
+        // Declare and instantiate required attributes and code to communicate with the database.
         BindingSource patientBinding = new BindingSource();
         PatientDAO patientDAO = new PatientDAO();
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public FormPatient() {
             InitializeComponent();
             DisplayAllPatientsOnLoad();
         }
 
+        /// <summary>
+        /// This is run when this form is instantiated.
+        /// All patients in the database are retrieved and displayed onto the FormPatient.
+        /// </summary>
         public void DisplayAllPatientsOnLoad()
         {
             patientBinding.DataSource = patientDAO.getAllPatients();
+
+            // Attach data source into a data grid view
             dataGridView1.DataSource = patientBinding;
         }
 
+        /// <summary>
+        /// This method displays an individual patient.
+        /// </summary>
+        /// <param name="patientDAO"></param>
         public void DisplayAllPatients(PatientDAO patientDAO)
         {
             patientBinding.DataSource = patientDAO.getAllPatients();
             dataGridView1.DataSource = patientBinding; 
         }
 
-
+        /// <summary>
+        /// This method handles all button presses for a FormPatient.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void patient_button_Click(object sender, EventArgs e)
         {
             if (sender != exit_patient_button)
             {
                 if (dataGridView1.SelectedRows.Count == 0)
                 {
+                    // Error handling
                     MessageBox.Show("You have selected a cell. Please select a row (patient).");
                     return;
                 }
@@ -47,6 +70,7 @@ namespace Valenwu
 
             if (sender == add_new_patient)
             {
+                // Open the FormPatientInfo
                 FormPatientInfo fp = new FormPatientInfo(this);
                 fp.MdiParent = this.MdiParent;
                 fp.Show();
@@ -94,6 +118,7 @@ namespace Valenwu
             }
             else if (sender == view_invoice)
             {
+                // Open the FormInvoice for the selected patient.
                 Patient selectedPatient = (Patient)dataGridView1.SelectedRows[0].DataBoundItem;
                 FormInvoice fp = new FormInvoice(this, selectedPatient);
                 fp.MdiParent = this.MdiParent;
@@ -108,7 +133,6 @@ namespace Valenwu
                 }
 
                 Patient selectedPatient = (Patient)dataGridView1.SelectedRows[0].DataBoundItem;
-
                 FormConfirmAppointment fp = new FormConfirmAppointment(selectedPatient);
                 fp.MdiParent = this.MdiParent;
                 fp.Show();

@@ -15,8 +15,12 @@ using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace Valenwu
 {
+    /// <summary>
+    /// The FormPage represents a "page" in the FormBook. This class contains methods for displaying appointments at a future date relative to the current date. This class also contains methods perform CRUD operations on appointments.
+    /// </summary>
     public partial class FormPage : Form
     {
+        // Instantiate required attributes to communicate with the database and the FormPage state
         BindingSource appointmentBinding = new BindingSource();
         AppointmentDAO appointmentDAO = new AppointmentDAO();
         InvoiceDAO invoiceDAO = new InvoiceDAO();
@@ -24,6 +28,9 @@ namespace Valenwu
         public int formMonth;
         public int formYear;
 
+        /// <summary>
+        /// Default Constructor
+        /// </summary>
         public FormPage()
         {
             InitializeComponent();
@@ -32,6 +39,12 @@ namespace Valenwu
             formYear= 0;
         }
 
+        /// <summary>
+        /// Overloaded constructor.
+        /// </summary>
+        /// <param name="day"></param>
+        /// <param name="month"></param>
+        /// <param name="year"></param>
         public FormPage(int day, int month, int year)
         {
             InitializeComponent();
@@ -40,6 +53,12 @@ namespace Valenwu
             formYear = year;
         }
 
+        /// <summary>
+        /// Display all appointments for a given month, day and year.
+        /// </summary>
+        /// <param name="month"></param>
+        /// <param name="day"></param>
+        /// <param name="year"></param>
         public void displayAppointments(int month, int day, int year)
         {
             appointmentBinding.DataSource = appointmentDAO.getAppointmentsForPatientInnerJoin(month, day, year);
@@ -50,6 +69,11 @@ namespace Valenwu
             }
         }
 
+        /// <summary>
+        /// This method handles all button events in FormPage.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PageButton_Click(object sender, EventArgs e)
         {
             if (sender == squeeze_in_button)

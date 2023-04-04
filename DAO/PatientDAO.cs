@@ -9,10 +9,17 @@ using Valenwu.Entities;
 
 namespace Valenwu.DAO
 {
+    /// <summary>
+    /// Separates queries / Patient-related operations from business logic
+    /// </summary>
     public class PatientDAO
     {
         string connectionString = "datasource=localhost;port=3306;username=root;password=root;database=valenwu_db";
 
+        /// <summary>
+        /// Returns a list of all patients stored in the Patient table.
+        /// </summary>
+        /// <returns></returns>
         public List<Patient> getAllPatients()
         {
             List<Patient> returnPatients = new List<Patient>();
@@ -64,9 +71,13 @@ namespace Valenwu.DAO
             return returnPatients;
         }
 
-
+        /// <summary>
+        /// Adds one patient to the Patient table by its Patient object.
+        /// </summary>
+        /// <returns></returns>
         internal int addOnePatient(Patient patient)
         {
+            // Stores the number of rows that were changed in the Patient table.
             int result = 0;
 
             try
@@ -77,6 +88,7 @@ namespace Valenwu.DAO
 
                     MySqlCommand command = new MySqlCommand("INSERT INTO `patient`(`LAST_NAME`, `FIRST_NAME`, `MIDDLE_NAME`, `ADDRESS`, `PROVINCE`, `CITY`, `POSTAL_CODE`, `BIRTH_DATE`, `PHN`, `PHONE`, `EMAIL`, `OCCUPATION`, `INSURANCE`, `MISC`, `LAST_VISIT`, `FIRST_VISIT`) VALUES (@lastname, @firstname, @middlename, @address, @province, @city, @postalcode, @birthdate, @phn, @phone, @email, @occupation, @insurance, @misc, @lastvisit, @firstvisit)", connection);
 
+                    // Add values to each corresponding columns
                     command.Parameters.AddWithValue("@lastname", patient.LastName);
                     command.Parameters.AddWithValue("@firstname", patient.FirstName);
                     command.Parameters.AddWithValue("@middlename", patient.MiddleName);
@@ -105,8 +117,14 @@ namespace Valenwu.DAO
             return result;
         }
 
+        /// <summary>
+        /// Delete one patient by its corresponding patient object
+        /// </summary>
+        /// <param name="patient"></param>
+        /// <returns></returns>
         public int deleteOnePatient(Patient patient)
         {
+            // Variable to return number of new rows that were deleted.
             int result = 0;
 
             try
@@ -115,6 +133,7 @@ namespace Valenwu.DAO
                 {
                     connection.Open();
 
+                    // Delete patient with corresponding ID
                     MySqlCommand command = new MySqlCommand("DELETE FROM `patient` WHERE `ID` = @id", connection);
 
                     command.Parameters.AddWithValue("@id", patient.ID);
@@ -130,6 +149,11 @@ namespace Valenwu.DAO
             return result;
         }
 
+        /// <summary>
+        /// Updates a patient by the updated Patient object.
+        /// </summary>
+        /// <param name="patient"></param>
+        /// <returns></returns>
         public int updateOnePatient(Patient patient)
         {
             int result = 0;
@@ -140,6 +164,7 @@ namespace Valenwu.DAO
                 {
                     connection.Open();
 
+                    // SQL code to update a patient
                     MySqlCommand command = new MySqlCommand("UPDATE `patient` SET `LAST_NAME` = @lastname, `FIRST_NAME` = @firstname, `MIDDLE_NAME` = @middlename, `ADDRESS` = @address, `PROVINCE` = @province, `CITY` = @city, `POSTAL_CODE` = @postalcode, `BIRTH_DATE` = @birthdate, `PHN` = @phn, `PHONE` = @phone, `EMAIL` = @email, `OCCUPATION` = @occupation, `INSURANCE` = @insurance, `MISC` = @misc, `LAST_VISIT` = @lastvisit, `FIRST_VISIT` = @firstvisit WHERE `ID` = @id", connection);
 
                     command.Parameters.AddWithValue("@lastname", patient.LastName);
@@ -171,8 +196,14 @@ namespace Valenwu.DAO
             return result;
         }
 
+        /// <summary>
+        /// Get one patient by their patient ID.
+        /// </summary>
+        /// <param name="patientID"></param>
+        /// <returns></returns>
         public Patient getOnePatient(int patientID)
         {
+            // Variable to store updated patient object
             Patient patient = new Patient();
 
             try
@@ -184,7 +215,7 @@ namespace Valenwu.DAO
                     // Define the SQL query (@id is the user-selected appointment-directed patient's id)
                     MySqlCommand command = new MySqlCommand("SELECT * FROM `patient` WHERE patient.ID = @id;", connection);
 
-                    // assign variable id to patientID
+                    // Assign variable id to patientID
                     command.Parameters.AddWithValue("@id", patientID);
 
                     using (MySqlDataReader reader = command.ExecuteReader())

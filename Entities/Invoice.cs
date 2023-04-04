@@ -8,6 +8,10 @@ namespace Valenwu.Entities
 {
     internal class Invoice
     {
+        /// <summary>
+        /// An invoice entity with it's corresponding attributes.
+        /// This class is used to construct an Invoice object to be used in the database.
+        /// </summary>
         public int ID { get; set; }
         public int patientID { get; set; }
         public int serviceID { get; set; }

@@ -13,32 +13,54 @@ using Valenwu.Forms;
 
 namespace Valenwu
 {
+    /// <summary>
+    /// The FormServices class contains methods for displaying and interacting with Services. It includes functions for handling all CRUD operations for a Service.
+    /// </summary>
     public partial class FormServices : Form
     {
+        // Declare / instantiate required objects to communicate with the database.
         BindingSource serviceBinding = new BindingSource();
         ServiceDAO serviceDAO = new ServiceDAO();
 
+        /// <summary>
+        /// Default Constructor
+        /// </summary>
         public FormServices()
         {
             InitializeComponent();
             DisplayAllServicesOnLoad();
         }
+
+        /// <summary>
+        /// This method displays all services on form load.
+        /// </summary>
         public void DisplayAllServicesOnLoad()
         {
+            // Retrieve data and bind to data grid view
             serviceBinding.DataSource = serviceDAO.getAllServices();
             dataGridViewServices.DataSource = serviceBinding;
         }
 
+        /// <summary>
+        /// This method displays all services only when it's called.
+        /// </summary>
+        /// <param name="serviceDAO"></param>
         public void DisplayAllServices(ServiceDAO serviceDAO)
         {
             serviceBinding.DataSource = serviceDAO.getAllServices();
             dataGridViewServices.DataSource = serviceBinding;
         }
 
+        /// <summary>
+        /// This method handles all button events in FormServices.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void service_button_Click(object sender, EventArgs e)
         {
             if (sender != ExitServiceButton)
             {
+                // Error handling
                 if (dataGridViewServices.SelectedRows.Count == 0)
                 {
                     MessageBox.Show("You have selected a cell. Please select a row (service).");
@@ -47,6 +69,7 @@ namespace Valenwu
             }
             if (sender == addNewServiceButton)
             {
+                // Display FormServiceInfo upon this event being triggered.
                 FormServiceInfo fp = new FormServiceInfo(this);
                 fp.MdiParent = this.MdiParent;
                 fp.Show();
@@ -60,6 +83,7 @@ namespace Valenwu
 
                     if (dialogResult == DialogResult.Yes)
                     {
+                        // Delete a specific service
                         Service service = (Service)dataGridViewServices.SelectedRows[0].DataBoundItem;
                         int result = serviceDAO.deleteOneService(service);
 
@@ -83,6 +107,7 @@ namespace Valenwu
             {
                 if (dataGridViewServices.SelectedRows.Count > 0)
                 {
+                    // Edit a specific service.
                     Service service = (Service)dataGridViewServices.SelectedRows[0].DataBoundItem;
                     FormServiceInfo formServiceInfo = new FormServiceInfo(this, service);
                     formServiceInfo.ShowDialog();
@@ -100,6 +125,7 @@ namespace Valenwu
         {
             if (dataGridViewServices.SelectedRows.Count > 0)
             {
+                // Show the FormServiceInfo upon selecting a specific service.
                 Service service = (Service)dataGridViewServices.SelectedRows[0].DataBoundItem;
                 FormServiceInfo formServiceInfo = new FormServiceInfo(this, service);
                 formServiceInfo.ShowDialog();

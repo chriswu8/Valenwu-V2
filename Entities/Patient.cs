@@ -8,6 +8,11 @@ namespace Valenwu.Entities
 {
     public class Patient
     {
+        /// <summary>
+        /// A patient entity with it's corresponding attributes.
+        /// This class is used to construct a Patient object to be used in the database.
+        /// </summary>
+        /// 
         public int ID { get; set; }
         public string? LastName { get; set; }
         public string? FirstName { get; set; }

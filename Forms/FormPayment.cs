@@ -12,8 +12,12 @@ using Valenwu.DAO;
 
 namespace Valenwu
 {
+    /// <summary>
+    /// The FormPayment class contains methods for handling all payments for an invoice and a patient. It includes functions for taking and updating a payment.
+    /// </summary>
     public partial class FormPayment : Form
     {
+        // Declare / instantiate required objects
         private FormPatient formPatient;
         private FormInvoice formInvoice;
         private JObject currentInvoice;
@@ -24,17 +28,24 @@ namespace Valenwu
 
         private double totalPayment;
 
-
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="fp"></param>
         public FormPayment(FormPatient fp)
         {
             InitializeComponent();
             formPatient = fp;
         }
 
+        /// <summary>
+        /// Overloaded constructor
+        /// </summary>
+        /// <param name="formInvoice"></param>
+        /// <param name="currentInvoice"></param>
         public FormPayment(FormInvoice formInvoice, JObject currentInvoice)
         {
-            // ID, FIRST_NAME, LAST_NAME, CODE, FEE
-
+           
             InitializeComponent();
             invoiceDAO = new InvoiceDAO();
             this.formInvoice = formInvoice;
@@ -42,6 +53,9 @@ namespace Valenwu
             updatePaymentSummary();
         }
 
+        /// <summary>
+        /// This method takes all paid invoices and calculates payment information from it. Taxes and fees and added to the total due.
+        /// </summary>
         public void updatePaymentSummary()
         {
             totalPayment = Int32.Parse(currentInvoice["FEE"].ToString()) + (Int32.Parse(currentInvoice["FEE"].ToString()) * hst) + (Int32.Parse(currentInvoice["FEE"].ToString()) * pst);
@@ -56,6 +70,11 @@ namespace Valenwu
             primary_payment_type.Text = totalPayment.ToString();
         }
 
+        /// <summary>
+        /// This method updates the payment details of an invoice.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void formPayment_save_Click(object sender, EventArgs e)
         {
             int paymentSuccess = invoiceDAO.updateInvoice(currentInvoice, totalPayment);

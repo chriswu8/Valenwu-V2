@@ -18,6 +18,13 @@ namespace Valenwu.DAO
         // the connection string for the database
         string connectionString = "datasource=localhost;port=3306;username=root;password=root;database=valenwu_db";
 
+        /// <summary>
+        /// Get a corresponding appointment for a patient.
+        /// </summary>
+        /// <param name="month"></param>
+        /// <param name="day"></param>
+        /// <param name="year"></param>
+        /// <returns></returns>
         public List<Appointment> getAppointmentsForPatient(int month, int day, int year)
         {
             List<Appointment> returnPatients = new List<Appointment>();
@@ -328,7 +335,7 @@ namespace Valenwu.DAO
 
                     MySqlCommand command = new MySqlCommand("UPDATE `appointment` SET `MONTH`=@month,`DAY`=@day,`YEAR`=@year,`TIME`=@time,`EXAM`=@exam,`FEE`=@fee WHERE appointment.ID = 21", connection);
 
-                    // Set parameters with 
+                    // Set parameters with values in the MySQL database
                     command.Parameters.AddWithValue("@id", appointment.ID);
                     command.Parameters.AddWithValue("@month", appointment.Month);
                     command.Parameters.AddWithValue("@day", appointment.Day);

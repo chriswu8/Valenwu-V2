@@ -13,8 +13,12 @@ using Valenwu.Entities;
 
 namespace Valenwu
 {
+    /// <summary>
+    /// The FormPatientInfo class is responsible for displaying the form to update patient details. Contained within this class are methods to perform CRUD operations for patient information.
+    /// </summary>
     public partial class FormPatientInfo : Form
     {
+        // Declare and instantiate required attributes and objects to communicate with the database.
         BindingSource patientBinding = new BindingSource();
         PatientDAO patientDAO = new PatientDAO();
         AppointmentDAO appointmentDAO = new AppointmentDAO();
@@ -22,7 +26,10 @@ namespace Valenwu
         Patient patient;
         List<string> titles = new List<string>() { "Mr.", "Mrs.", "Ms.", "Miss", "Dr.", "Prof." };
 
-
+        /// <summary>
+        /// Constructor which takes in a FormPatient.
+        /// </summary>
+        /// <param name="fp"></param>
         public FormPatientInfo(FormPatient fp)
         {
             InitializeComponent();
@@ -30,6 +37,10 @@ namespace Valenwu
             TitlesComboBox.Items.AddRange(titles.ToArray());
         }
 
+        /// <summary>
+        /// Constructor which takes in a custom object.
+        /// </summary>
+        /// <param name="obj"></param>
         public FormPatientInfo(JObject obj)
         {
             InitializeComponent();
@@ -38,6 +49,7 @@ namespace Valenwu
             // selected Patient from FormPage
             Patient thePatient = patientDAO.getOnePatient(Int32.Parse(obj["patient_ID"].ToString()));
 
+            // Set patient object to textbox label
             LastNameTextbox.Text = thePatient.LastName;
             FirstNameTextbox.Text = thePatient.FirstName;
             MiddleNameTextbox.Text = thePatient.MiddleName;
@@ -62,7 +74,10 @@ namespace Valenwu
         }
 
 
-
+        /// <summary>
+        /// Set a the FormPatient textbox labels with information from a patient object.
+        /// </summary>
+        /// <param name="p"></param>
         public void SetPatient(Patient p)
         {
             patient = p;
@@ -86,10 +101,16 @@ namespace Valenwu
             MiscTextbox.Text = patient.Misc;
         }
 
+        /// <summary>
+        /// Save a patient to the database upon the Save button press.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void form_patient_info_save_Click(object sender, EventArgs e)
         {
             if (sender == form_patient_info_save)
             {
+                // Assign patient object with information from the form.
                 Patient patient = new Patient
                 {
                     LastName = LastNameTextbox.Text,

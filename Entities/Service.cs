@@ -8,6 +8,11 @@ namespace Valenwu.Entities
 {
     public class Service
     {
+        /// <summary>
+        /// A service entity with it's corresponding attributes.
+        /// This class is used to construct a Service object to be used in the database.
+        /// </summary>
+        
         public int Id
         {
             get; set;
