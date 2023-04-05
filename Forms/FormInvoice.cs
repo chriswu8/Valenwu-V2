@@ -47,7 +47,7 @@ namespace Valenwu
 
             // Display all invoices BELONGING TO THE GIVEN PATIENT
             displayAllInvoicesFromPatient(patient.ID);
-            /*calculateTotalAmountDue(patient.ID);*/
+            calculateTotalAmountDue(patient.ID);
         }
 
         private void calculateTotalAmountDue(int patientID)
@@ -57,7 +57,7 @@ namespace Valenwu
 
             for (int i = 0; i < totalInvoices.Count(); i++)
             {
-                totalAmount += Int32.Parse(totalInvoices[i]["TOTAL_PAID"].ToString());
+                totalAmount += Int32.Parse(totalInvoices[i]["FEE"].ToString());
             }
 
             formInvoice_richTextBox1.Text = totalAmount.ToString();
