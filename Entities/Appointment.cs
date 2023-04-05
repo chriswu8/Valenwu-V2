@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Valenwu.Entities
 {
-    internal class Appointment
+    public class Appointment
     {
         /// <summary>
         /// An appointment entity with it's corresponding attributes.

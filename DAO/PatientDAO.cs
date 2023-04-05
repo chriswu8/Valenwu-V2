@@ -75,7 +75,7 @@ namespace Valenwu.DAO
         /// Adds one patient to the Patient table by its Patient object.
         /// </summary>
         /// <returns></returns>
-        internal int addOnePatient(Patient patient)
+        public int addOnePatient(Patient patient)
         {
             // Stores the number of rows that were changed in the Patient table.
             int result = 0;
@@ -85,6 +85,10 @@ namespace Valenwu.DAO
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
                     connection.Open();
+
+                    MySqlCommand deleteCommand = new MySqlCommand("DELETE FROM `patient` WHERE `PHN` = @phn", connection);
+                    deleteCommand.Parameters.AddWithValue("@phn", patient.PHN);
+                    deleteCommand.ExecuteNonQuery();
 
                     MySqlCommand command = new MySqlCommand("INSERT INTO `patient`(`LAST_NAME`, `FIRST_NAME`, `MIDDLE_NAME`, `ADDRESS`, `PROVINCE`, `CITY`, `POSTAL_CODE`, `BIRTH_DATE`, `PHN`, `PHONE`, `EMAIL`, `OCCUPATION`, `INSURANCE`, `MISC`, `LAST_VISIT`, `FIRST_VISIT`) VALUES (@lastname, @firstname, @middlename, @address, @province, @city, @postalcode, @birthdate, @phn, @phone, @email, @occupation, @insurance, @misc, @lastvisit, @firstvisit)", connection);
 
@@ -165,7 +169,7 @@ namespace Valenwu.DAO
                     connection.Open();
 
                     // SQL code to update a patient
-                    MySqlCommand command = new MySqlCommand("UPDATE `patient` SET `LAST_NAME` = @lastname, `FIRST_NAME` = @firstname, `MIDDLE_NAME` = @middlename, `ADDRESS` = @address, `PROVINCE` = @province, `CITY` = @city, `POSTAL_CODE` = @postalcode, `BIRTH_DATE` = @birthdate, `PHN` = @phn, `PHONE` = @phone, `EMAIL` = @email, `OCCUPATION` = @occupation, `INSURANCE` = @insurance, `MISC` = @misc, `LAST_VISIT` = @lastvisit, `FIRST_VISIT` = @firstvisit WHERE `ID` = @id", connection);
+                    MySqlCommand command = new MySqlCommand("UPDATE `patient` SET `LAST_NAME` = @lastname, `FIRST_NAME` = @firstname, `MIDDLE_NAME` = @middlename, `ADDRESS` = @address, `PROVINCE` = @province, `CITY` = @city, `POSTAL_CODE` = @postalcode, `BIRTH_DATE` = @birthdate, `PHN` = @phn, `PHONE` = @phone, `EMAIL` = @email, `OCCUPATION` = @occupation, `INSURANCE` = @insurance, `MISC` = @misc, `LAST_VISIT` = @lastvisit, `FIRST_VISIT` = @firstvisit WHERE `PHN` = @phn", connection);
 
                     command.Parameters.AddWithValue("@lastname", patient.LastName);
                     command.Parameters.AddWithValue("@firstname", patient.FirstName);

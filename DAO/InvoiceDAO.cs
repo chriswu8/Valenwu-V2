@@ -14,7 +14,7 @@ namespace Valenwu.DAO
     /// <summary>
     /// Separates queries / Invoice-related operations from business logic
     /// </summary>
-    internal class InvoiceDAO
+    public class InvoiceDAO
     {
         // the connection string for the database
         string connectionString = "datasource=localhost;port=3306;username=root;password=root;database=valenwu_db";
@@ -24,7 +24,7 @@ namespace Valenwu.DAO
         /// </summary>
         /// <param name="invoice"></param>
         /// <returns></returns>
-        internal int addOneInvoice(Invoice invoice)
+        public int addOneInvoice(Invoice invoice)
         {
             int result = 0;
             int testid = 0;
@@ -118,7 +118,7 @@ namespace Valenwu.DAO
         /// </summary>
         /// <param name="invoiceID"></param>
         /// <returns></returns>
-        internal int deleteInvoiceFromAppointment(int invoiceID)
+        public int deleteInvoiceFromAppointment(int invoiceID)
         {
             // Variable to hold the number of invoices that were deleted
             int result = 0;

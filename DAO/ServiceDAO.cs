@@ -112,7 +112,7 @@ namespace Valenwu.DAO
         /// </summary>
         /// <param name="service"></param>
         /// <returns></returns>
-        internal int addOneService(Service service)
+        public int addOneService(Service service)
         {
             // Variable to return number of new rows that were added.
             int result = 0;
@@ -149,7 +149,7 @@ namespace Valenwu.DAO
         /// </summary>
         /// <param name="service"></param>
         /// <returns></returns>
-        internal int deleteOneService(Service service)
+        public int deleteOneService(Service service)
         {
             // Variable to display number of columns that were modified.
             int result = 0;

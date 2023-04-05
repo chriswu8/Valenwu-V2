@@ -13,7 +13,7 @@ namespace Valenwu.DAO
     /// <summary>
     /// Separates queries / Appointment-related operations from business logic
     /// </summary>
-    internal class AppointmentDAO
+    public class AppointmentDAO
     {
         // the connection string for the database
         string connectionString = "datasource=localhost;port=3306;username=root;password=root;database=valenwu_db";
@@ -248,7 +248,7 @@ namespace Valenwu.DAO
         /// </summary>
         /// <param name="appointment"></param>
         /// <returns></returns>
-        internal int addAppointmentByPatient(Appointment appointment)
+        public int addAppointmentByPatient(Appointment appointment)
         {
             int result = 0;
 
@@ -289,7 +289,7 @@ namespace Valenwu.DAO
         /// </summary>
         /// <param name="appointmentID"></param>
         /// <returns></returns>
-        internal int deleteOneAppointment(int appointmentID)
+        public int deleteOneAppointment(int appointmentID)
         {
             // variable to store number of deleted rows
             int result = 0;
@@ -322,7 +322,7 @@ namespace Valenwu.DAO
         /// </summary>
         /// <param name="appointment"></param>
         /// <returns></returns>
-        internal int updateOneAppointment(Appointment appointment)
+        public int updateOneAppointment(Appointment appointment)
         {
             // variable to store number of updated rows
             int result = 0;
@@ -333,7 +333,7 @@ namespace Valenwu.DAO
                 {
                     connection.Open();
 
-                    MySqlCommand command = new MySqlCommand("UPDATE `appointment` SET `MONTH`=@month,`DAY`=@day,`YEAR`=@year,`TIME`=@time,`EXAM`=@exam,`FEE`=@fee WHERE appointment.ID = 21", connection);
+                    MySqlCommand command = new MySqlCommand("UPDATE `appointment` SET `MONTH`=@month,`DAY`=@day,`YEAR`=@year,`TIME`=@time,`EXAM`=@exam,`FEE`=@fee WHERE appointment.ID = @id", connection);
 
                     // Set parameters with values in the MySQL database
                     command.Parameters.AddWithValue("@id", appointment.ID);

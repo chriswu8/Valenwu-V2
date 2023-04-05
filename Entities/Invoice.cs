@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Valenwu.Entities
 {
-    internal class Invoice
+    public class Invoice
     {
         /// <summary>
         /// An invoice entity with it's corresponding attributes.

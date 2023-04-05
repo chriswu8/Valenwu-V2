@@ -23,6 +23,7 @@ namespace Valenwu
         AppointmentDAO appointmentDAO = new AppointmentDAO();
         InvoiceDAO invoiceDAO = new InvoiceDAO();
         List<Service> services;
+        int rowID;
         Boolean flag = false;
 
         /// <summary>
@@ -65,6 +66,8 @@ namespace Valenwu
 
             // Retrieves a list of ALL available services from the database using the ServiceDAO object's getAllServices method and stores it in the services variable
             services = serviceDAO.getAllServices();
+
+            rowID = Int32.Parse(obj["ID"].ToString());
 
             // Populates services from the service table to the Exam dropdown
             foreach (Service service in services)
@@ -133,6 +136,7 @@ namespace Valenwu
             {
                 Appointment appointment = new Appointment
                 {
+                    ID = rowID,
                     Month = formConfirmAppt_date.Value.Month.ToString(),
                     Day = formConfirmAppt_date.Value.Day.ToString(),
                     Year = formConfirmAppt_date.Value.Year.ToString(),
@@ -149,7 +153,7 @@ namespace Valenwu
 
                 if (changeSuccess == 1)
                 {
-                    MessageBox.Show("this iw rokig");
+                    MessageBox.Show("Appointment rescheduled");
                 }
 
                 flag = false;
